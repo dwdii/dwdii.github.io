@@ -4,6 +4,7 @@
 		<title>{{ page.title }}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link href="http://ajax.aspnetcdn.com/ajax/bootstrap/2.3.1/css/bootstrap.min.css" rel="stylesheet" media="screen" />
+        <link href="./css/bootpolish.css" rel="stylesheet" />
         <link href="http://ajax.aspnetcdn.com/ajax/bootstrap/2.3.1/css/bootstrap-responsive.min.css" rel="stylesheet" />
 	</head>
 	<body>
@@ -27,7 +28,17 @@
           </div>
         </div>
 
-	{{ content }}
+        <div>
+	    {{ content }}
+        </div>
+
+        <footer class="muted text-center">
+            Copyright (C) 2013 Daniel Dittenhafer, Dittenhafer Solutions
+        </footer>
+
+        <!-- Scripts - placed at end of doc so page loads faster per Bootstrap-->
+        <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.2.min.js"></script>
+        <script src="http://ajax.aspnetcdn.com/ajax/bootstrap/2.3.1/bootstrap.min.js"></script>
 	</body>
 </html>
 
