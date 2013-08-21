@@ -113,27 +113,27 @@ Moving along, I tell Sammy about my "root" route in the call to the get method a
 this.get('#/', function (context) { 
 {% endhighlight %}
 
-
 First, I log to help with debugging, then call Sammy's swap method. This isn't important at first, but when you have more than one route, and your user returns to the "root" route, the swap call ensures the content is cleared before new content is rendered. The next line of code brings in the Mustache template for my main grid. For the most part, this Mustache template is just a placeholder for the results of the row template that comes a couple of lines later. 
 
+{% highlight js linenos %}
 // Load the User's Financial Asset table template 
 MyGlobalApp.SammyApp.swap(''); 
 this.render('/Sam/Tmpl/UserFinAssetTable.mustache', { item: 'dummy' }).appendTo(context.$element()); 
+
 // Load the data rows and populate the table 
 this.load(MyGlobalApp.Ajax_GetUserFinAssets, { json: true, cache: false }).then(function (items) { 
 
+	$.each(items, function (i, item) { 
 
- $.each(items, function (i, item) { 
+		context.log("Ticker: " + item.FinancialAsset.TickerSymbol + "; Shares: " + item.Shares + "; Balance: " + item.Balance); 
 
+		item.Shares = MyGlobalApp.FormatNumber(item.Shares);
+		item.Balance = MyGlobalApp.FormatCurrency("$ {n}", item.Balance); 
 
-context.log("Ticker: " + item.FinancialAsset.TickerSymbol + "; Shares: " + item.Shares + "; Balance: " + item.Balance); 
-
-item.Shares = MyGlobalApp.FormatNumber(item.Shares);
-item.Balance = MyGlobalApp.FormatCurrency("$ {n}", item.Balance); 
-
-context.render('/Sam/Tmpl/UserFinAssetRow.mustache', item).appendTo('#userFinancialAssets');
-
+		context.render('/Sam/Tmpl/UserFinAssetRow.mustache', item).appendTo('#userFinancialAssets');
+	}); 
 }); 
+{% endhighlight %}
 
 Here are the Mustache templates, so you can see how it fits together. First the UserFinAssetTable.mustache template: 
 
