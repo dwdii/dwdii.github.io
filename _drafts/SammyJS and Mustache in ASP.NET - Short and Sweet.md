@@ -12,10 +12,10 @@ Obviously, the first thing I needed to do was download the sammy.js JavaScript a
 
 Sammy is compatible with and uses jQuery, so if you haven't already, you'll need to include a reference to jQuery (v1.4.1 or above) also (be sure to add the reference to jQuery above Sammy). 
 
-{{ highlight html linenos}}
+{% highlight html linenos %}
 <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.1.min.js"> </script> 
 <script src="./Scripts/sammy-latest.min.js"> </script> 
-{{ endhighlight }}
+{% endhighlight %}
 
 And that's it! Well, almost.
 
@@ -23,17 +23,17 @@ I include my references to Mustache and the SammyJS plugin for Mustache also. Al
 
 Much like RequireJS, Sammy needs a "main" or app specific JavaScript segment best implemented in a separate js file. I called mine sammy-app.js for simplicity.
 
-{{ highlight html linenos}}
+{% highlight html linenos %}
 <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.9.1.min.js"> </script> 
 <script src="./Scripts/sammy-latest.min.js"> </script> 
 <script src="./Scripts/mustache.js"> </script> 
 <script src="./Scripts/sammy.mustache.js"> </script> 
 <script src="./Scripts/sammy-app.js"> </script> 
-{{ endhighlight }}
+{% endhighlight %}
 
 Inside the sammy-app.js goes our single page routing logic. I prefer to use the module pattern for my variables (thanks to Eric Miraglia (@miraglia), for this!), so first you see the "MyGlobalVar" definition. This is not required by Sammy, but I think it is useful so I have retained it here. Also, within the Sammy instantiation, you'll find my reference to Mustache which tells Sammy to fetch and use the Mustache engine for templates. 
 
-{{ highlight js linenos}}
+{% highlight js linenos %}
 // First, my global variable - not required nor used by Sammy 
 var MyGlobalVar = (function () { 
 
@@ -82,16 +82,17 @@ var MyGlobalVar = (function () {
 		}); 
 	}); 
 }); 
-{{ endhighlight }}
+{% endhighlight %}
 
 How does Sammy know where to insert changes into the DOM? When instantiating the Sammy instance, I've specified "#sammyMain" as a parameter. This parameter tells Sammy what node in the DOM is the outer node of it's primary update region. 
 
-{{ highlight js linenos}}
+{% highlight js linenos %}
 MyGlobalVar.SammyApp = $.sammy('#sammyMain', function () { 
-{{ endhighlight }}
+{% endhighlight %}
 
 In this case my ASP.NET ASPX page is very small. It includes the SCRIPT tags previously mentioned, along with a DIV tag with the "#sammyMain" id, all wrapped in the ASP.NET Content node.
 
+{% highlight html linenos %}
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server"> 
 <div id="#sammyMain"> 
 </div> 
@@ -101,10 +102,14 @@ In this case my ASP.NET ASPX page is very small. It includes the SCRIPT tags pre
 <script src="./Scripts/sammy.mustache.js"> </script> 
 <script src="./Scripts/sammy-app.js"> </script> 
 </asp:Content> 
+{% endhighlight %}
+
 Moving along, I tell Sammy about my "root" route in the call to the get method and specify the handler for the associated event. This get method/handler pattern can be repeated for any number of additional routes you might need.
 
+{% highlight js linenos %}
 // Root - Main 'homepage' of SPA 
 this.get('#/', function (context) { 
+{% endhighlight %}
 
 
 First, I log to help with debugging, then call Sammy's swap method. This isn't important at first, but when you have more than one route, and your user returns to the "root" route, the swap call ensures the content is cleared before new content is rendered. The next line of code brings in the Mustache template for my main grid. For the most part, this Mustache template is just a placeholder for the results of the row template that comes a couple of lines later. 
@@ -126,29 +131,31 @@ item.Balance = MyGlobalApp.FormatCurrency("$ {n}", item.Balance);
 
 context.render('/Sam/Tmpl/UserFinAssetRow.mustache', item).appendTo('#userFinancialAssets');
 
-}); Here are the Mustache templates, so you can see how it fits together. First the UserFinAssetTable.mustache template: 
+}); 
+
+Here are the Mustache templates, so you can see how it fits together. First the UserFinAssetTable.mustache template: 
+
+{% highlight html linenos %}
 <table id="userFinancialAssets">
-
-<tr>
-
-<th>Ticker</th> 
-<th>Shares</th> 
-<th>Balance</th> 
-
-</tr> 
+	<tr>
+		<th>Ticker</th> 
+		<th>Shares</th> 
+		<th>Balance</th> 
+	</tr> 
 </table> 
+{% endhighlight %}
+
 Next, the UserFinAssetRow.mustache template:
 
+{% highlight html linenos %}
 <tr>
-
-<td>
-
-<a href="../FinAsset/?ts={{FinancialAsset.TickerSymbol}}">{{FinancialAsset.TickerSymbol}}<a> 
-
-</td> 
-<td>{{Shares}}</td>
-<td>{{Balance}}</td> 
+	<td>
+		<a href="../FinAsset/?ts={{FinancialAsset.TickerSymbol}}">{{FinancialAsset.TickerSymbol}}<a> 
+	</td> 
+	<td>{{Shares}}</td>
+	<td>{{Balance}}</td> 
 </tr>
+{% endhighlight %}
 
 Admittedly, I don't go into depth on Sammy here, but I hope the examples and explanation I have provided will help others who are starting out with SammyJS and Mustache.
 
