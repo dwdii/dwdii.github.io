@@ -20,9 +20,16 @@
               <a class="brand" href="#">dwdii - Daniel Dittenhafer</a>
               <div class="nav-collapse collapse">
                 <ul class="nav">
-                  <li class="active"><a href="#">Home</a></li>
-                  <!--li><a href="#about">About</a></li>
-                  <li><a href="#contact">Contact</a></li-->
+                  <li class="active"><a href="#"></a></li>
+                  <li><a href="#blog">Blog</a></li>
+                      <div class="nav-collapse collapse">
+                        <ul class="nav">
+                        {% for post in site.posts %}
+                            <li><a href="{{ post.url }}">{{ post.date | date_to_string }} {{ post.title }}</a></li>
+                        {% endfor %}
+                        </ul>
+                      </div><!--/.nav-collapse -->
+                  <!--<li><a href="#contact">Contact</a></li-->
                 </ul>
               </div><!--/.nav-collapse -->
             </div>
