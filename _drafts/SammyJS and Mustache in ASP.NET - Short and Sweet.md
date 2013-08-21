@@ -150,10 +150,10 @@ Next, the UserFinAssetRow.mustache template:
 {% highlight html linenos %}
 <tr>
 	<td>
-		<a href="../FinAsset/?ts={{FinancialAsset.TickerSymbol}}">{{FinancialAsset.TickerSymbol}}<a> 
+		<a href="../FinAsset/?ts={% raw %}{{FinancialAsset.TickerSymbol}}{% endraw %}">{% raw %}{{FinancialAsset.TickerSymbol}}{% endraw %}<a> 
 	</td> 
-	<td>{{Shares}}</td>
-	<td>{{Balance}}</td> 
+	<td>{% raw %}{{Shares}}{% endraw %}</td>
+	<td>{% raw %}{{Balance}}{% endraw %}</td> 
 </tr>
 {% endhighlight %}
 
