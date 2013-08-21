@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: SammyJS and Mustache in ASP.NET - Short and Sweet 
 ---
 I recently started working with SammyJS in my investment tracking web app and thought others might get some value out of a blog post on the topic. I had already developed a basic app API and ASP.NET website, but wanted to add support for the Single Page App (SPA) model to facilitate mobile access. 

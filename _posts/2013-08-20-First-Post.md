@@ -1,7 +1,7 @@
 ---
-layout: default
-title: My First Jekyl Post!
+layout: post
+title: My First Jekyll Post!
 ---
-My First Jekyl Post!
+My First Jekyll Post!
 ====================
-What can I say? This is my first simple blog post using the Jekyl engine on Github Pages.
+What can I say? This is my first simple blog post using the Jekyll engine on Github Pages.
