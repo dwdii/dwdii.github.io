@@ -6,30 +6,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link href="http://ajax.aspnetcdn.com/ajax/bootstrap/2.3.1/css/bootstrap.min.css" rel="stylesheet" media="screen" />
         <link href="./css/bootpolish.css" rel="stylesheet" />
+        <link href="./css/syntax.css" rel="stylesheet" />
         <link href="http://ajax.aspnetcdn.com/ajax/bootstrap/2.3.1/css/bootstrap-responsive.min.css" rel="stylesheet" />
 	</head>
 	<body>
-        <div class="navbar navbar-inverse navbar-fixed-top">
-          <div class="navbar-inner">
-            <div class="container">
-              <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="brand" href="#">dwdii - Daniel Dittenhafer</a>
-              <div class="nav-collapse collapse">
-                <ul class="nav">
-                  <li class="active"><a href="#">Home</a></li>
-                  <li><a href="#blog">Blog</a></li>
-                  <!--<li><a href="#contact">Contact</a></li-->
-                </ul>
-              </div><!--/.nav-collapse -->
-            </div>
-          </div>
-        </div>
+        {% include navbar.html %}
 
-        <div>
+
+        <div class="container">
 	    {{ content }}
         </div>
 
@@ -46,13 +30,7 @@
             </div>
         </div><!--/.container -->
 
-        <footer class="muted text-center">
-            Copyright (C) 2013 Daniel Dittenhafer, Dittenhafer Solutions
-        </footer>
-
-        <!-- Scripts - placed at end of doc so page loads faster per Bootstrap-->
-        <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.10.2.min.js"></script>
-        <script src="http://ajax.aspnetcdn.com/ajax/bootstrap/2.3.1/bootstrap.min.js"></script>
+        {% include footer.html %}
 	</body>
 </html>
 
