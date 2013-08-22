@@ -3,7 +3,7 @@ layout: post
 title: SammyJS and Mustache in ASP.NET - Short and Sweet 
 ---
 SammyJS and Mustache in ASP.NET - Short and Sweet 
-=================================================
+-------------------------------------------------
 I recently started working with [SammyJS](http://sammyjs.org/) in my investment tracking web app and thought others might get some value out of a blog post on the topic. I had already developed a basic app API and ASP.NET website, but wanted to add support for the Single Page App (SPA) model to facilitate mobile access. 
 
 At its core, SammyJS is a JavaScript framework which provides an event and routing subsystem for web apps using jQuery, AJAX, and desiring a structured client-side design. This fit my need and has integrated well so far. 
