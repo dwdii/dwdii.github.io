@@ -4,13 +4,15 @@ title: SammyJS and Mustache in ASP.NET - Short and Sweet
 ---
 SammyJS and Mustache in ASP.NET - Short and Sweet 
 =================================================
-I recently started working with SammyJS in my investment tracking web app and thought others might get some value out of a blog post on the topic. I had already developed a basic app API and ASP.NET website, but wanted to add support for the Single Page App (SPA) model to facilitate mobile access. 
+I recently started working with [SammyJS](http://sammyjs.org/) in my investment tracking web app and thought others might get some value out of a blog post on the topic. I had already developed a basic app API and ASP.NET website, but wanted to add support for the Single Page App (SPA) model to facilitate mobile access. 
 
 At its core, SammyJS is a JavaScript framework which provides an event and routing subsystem for web apps using jQuery, AJAX, and desiring a structured client-side design. This fit my need and has integrated well so far. 
 
-Obviously, the first thing I needed to do was download the sammy.js JavaScript and save it to my project's js folder. Alternatively, I could reference the file from a CDN. Although neither the Microsoft ASP.NET CDN nor Google CDN host Sammy yet, CloudFare has a large library of JavaScript, etc hosted by their CDNJS project - including Sammy! 
+Obviously, the first thing I needed to do was download the sammy.js JavaScript and save it to my project's js folder. Alternatively, I could reference the file from a CDN. Although neither the [Microsoft ASP.NET CDN](http://www.asp.net/ajaxlibrary/cdn.ashx) nor [Google CDN](https://developers.google.com/speed/libraries/devguide) host Sammy yet, CloudFare has a large library of JavaScript, etc hosted by their [CDNJS](http://cdnjs.com/) project - including Sammy! 
 
+{% highlight html linenos %}
 //cdnjs.cloudflare.com/ajax/libs/sammy.js/0.7.4/sammy.min.js
+{% endhighlight %}
 
 Sammy is compatible with and uses jQuery, so if you haven't already, you'll need to include a reference to jQuery (v1.4.1 or above) also (be sure to add the reference to jQuery above Sammy). 
 
@@ -33,7 +35,7 @@ Much like RequireJS, Sammy needs a "main" or app specific JavaScript segment bes
 <script src="./Scripts/sammy-app.js"> </script> 
 {% endhighlight %}
 
-Inside the sammy-app.js goes our single page routing logic. I prefer to use the module pattern for my variables (thanks to Eric Miraglia (@miraglia), for this!), so first you see the "MyGlobalVar" definition. This is not required by Sammy, but I think it is useful so I have retained it here. Also, within the Sammy instantiation, you'll find my reference to Mustache which tells Sammy to fetch and use the Mustache engine for templates. 
+Inside the sammy-app.js goes our single page routing logic. I prefer to use [the module pattern](http://yuiblog.com/blog/2007/06/12/module-pattern/) for my variables (thanks to [Eric Miraglia (@miraglia)](http://twitter.com/miraglia), for this!), so first you see the "MyGlobalVar" definition. This is not required by Sammy, but I think it is useful so I have retained it here. Also, within the Sammy instantiation, you'll find my reference to Mustache which tells Sammy to fetch and use the Mustache engine for templates. 
 
 {% highlight js linenos %}
 // First, my global variable - not required nor used by Sammy 
@@ -163,4 +165,4 @@ Admittedly, I don't go into depth on Sammy here, but I hope the examples and exp
 
 Thanks for reading!
 
-Daniel (@dwdii)
+[Daniel (@dwdii)](http://twitter.com/dwdii)
