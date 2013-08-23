@@ -12,7 +12,7 @@ of the deployment onto the QA servers.
 
 A few years ago, my team automated the post-build deployment steps using a CMD batch script, but the build process has continued to 
 be done manually by loading each solution, and rebuilding along with some logistical steps of pre-cleaning and saving the build log. 
-After participating in the [2011 Scripting Games](http://bit.ly/2011sgall/), I started thinking that I could use PowerShell to automate the build process and cut 
+After participating in the [2011 Scripting Games](http://blogs.technet.com/b/heyscriptingguy/archive/2011/02/19/2011-scripting-games-all-links-on-one-page.aspx), I started thinking that I could use PowerShell to automate the build process and cut 
 the QA release time significantly. I've started developing some scripts to make this happen and through this article would like to start sharing some of the useful functions.
 
 First I decided to use [MSBUILD.EXE](http://bit.ly/kz21Ad) as the basis for the builds. I know [TFS Build Server](http://bit.ly/kG2hy6) uses this tool also, and it just makes sense for any Visual Studio build process. My app is still using Visual Studio 2005 and .Net Framework v2 (I hope to upgrade to VS2008 later this year), so my efforts revolve around the v2.0.50727 flavor of MSBUILD.EXE, but I imagine much of my research is applicable to v3.5 and v4 as well.
