@@ -26,7 +26,7 @@ I searched the local PowerShell help and didn't see any info on how to get more 
 including [about_Try_Catch_Finally](http://technet.microsoft.com/en-us/library/dd315350.aspx) and didn't find any gems. Then I thought 
 "Maybe there is a global object, like `$host`, that as some error info". I tried $Err and $Error with no success... then I tried `$_` 
 and surprise! It resulted in an object with exception details! See the code sample below, where the `$_` object is used in the catch 
-block and converted to a string for output to the Write-Error stream.
+block and converted to a string for output to the `Write-Error` stream.
 
 {% highlight powershell linenos %}
 try
@@ -40,7 +40,7 @@ catch
 }
 {% endhighlight %}
 
-When run through 'Get-Member', the '$_' object in the catch block returns the following result:
+When run through `Get-Member`, the `$_` object in the catch block returns the following result:
 
 <pre>
 

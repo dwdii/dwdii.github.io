@@ -6,7 +6,7 @@ tags: HTML5 Canvas
 {{ page.title }}
 -------------------------------------------------
 I recently picked up a wireless network camera to use around the house. After getting it up and running, 
-I realized that the “mobile” support was less than ideal. The camera’s on-board web server provided a still 
+I realized that the "mobile" support was less than ideal. The camera’s on-board web server provided a still 
 image, an ActiveX control or a Java Applet as viewing options and only the still image was usable on my iPhone. 
 I decided to try a webpage which would refresh automatically every 1 second in order to get a crude motion video 
 effect via the HTML meta tag, as shown below.
@@ -15,7 +15,7 @@ effect via the HTML meta tag, as shown below.
 <meta http-equiv="Refresh" content="1;url=/cam/">
 {% endhighlight %}
 
-After playing with this for a little while and dealing with the “stop motion” video, constant page flicker and inability 
+After playing with this for a little while and dealing with the "stop motion" video, constant page flicker and inability 
 to zoom, etc, I decided to investigate the use of JavaScript to refresh the image while being able to stay on the same 
 HTML page. I came up with a decent solution involving setTimeout, the Image.onLoad event and CSS z-index, but apparently the 
 iPhone Safari doesn’t support the z-index property (or maybe something else was wrong). Anyway, I remembered something from a 
@@ -35,15 +35,13 @@ the CSS width and height and only did the following:
 <canvas id="imgCanvas" width="800" height="600" style="border-style:solid;border-color:Gray"/>
 {% endhighlight %}
 
-Another”gotcha” I had to deal with was the issue with reloading an image via JavaScript given the caching “help” which browsers 
+Another "gotcha" I had to deal with was the issue with reloading an image via JavaScript given the caching "help" which browsers 
 tend to provide. Interestingly, the workaround I discovered was effectively the same as the camera manufacturer’s approach. 
 I keep a count variable in the script block and increment it each time before loading the new image. This counter is then 
 appended to the image URL as part of the query string, thereby making it just unique enough to bypass the browser’s local 
 cache and fetch the new image from the camera.
 
-{% highlight html linenos %}
-<script type="text/javascript">
-
+{% highlight js linenos %}
     var iUpdateMs = 100;
     var count = 0;
 
@@ -59,7 +57,6 @@ cache and fetch the new image from the camera.
         newImg.onload = imageLoaded;
         newImg.src = "http://192.168.1.5/image.jpg?u=" + count;
     }
-</script>
 {% endhighlight %}
 
 Putting it all together, the following code presents the complete body segment of the HTML page.
