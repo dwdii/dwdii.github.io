@@ -9,7 +9,7 @@ For the last couple of weeks I have been required to import a data log file (CSV
 data management system. It occured to me today that I might be able to use PowerShell to automate some of the importing steps 
 which include import to a DEV, QA and Production system. I'm still working on this script, but in the process of developing it, I 
 had a need to learn more about an exception that was occuring in the script. I had my try/catch block already specified, but was simply 
-using Write-Error, as in the following code sample, to report a generic message "Failed to..." whenever the catch block was executed.
+using `Write-Error`, as in the following code sample, to report a generic message "Failed to..." whenever the catch block was executed.
 
 {% highlight powershell linenos %}
 try 
@@ -40,33 +40,29 @@ catch
 }
 {% endhighlight %}
 
-When run through `Get-Member`, the `$_` object in the catch block returns the following result:
+When I run through `Get-Member`, the `$_` object in the catch block returns the following result:
 
-<pre>
+	   TypeName: System.Management.Automation.ErrorRecord
 
-   TypeName: System.Management.Automation.ErrorRecord
-
-Name                  MemberType     Definition
-----                  ----------     ----------
-Equals                Method         bool Equals(System.Object obj)
-GetHashCode           Method         int GetHashCode()
-GetObjectData         Method         System.Void GetObjectData(System.Runtime.Serialization.SerializationInfo info, 
-                                     System.Runtime.Serialization.StreamingContext context)
-GetType               Method         type GetType()                                        
-ToString              Method         string ToString()                                     
-CategoryInfo          Property       System.Management.Automation.ErrorCategoryInfo CategoryInfo {get;}
-ErrorDetails          Property       System.Management.Automation.ErrorDetails ErrorDetails {get;set;} 
-Exception             Property       System.Exception Exception {get;}                                 
-FullyQualifiedErrorId Property       System.String FullyQualifiedErrorId {get;}                        
-InvocationInfo        Property       System.Management.Automation.InvocationInfo InvocationInfo {get;} 
-PipelineIterationInfo Property       System.Collections.ObjectModel.ReadOnlyCollection`1[[System.Int32, mscorlib, 
-                                     Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] 
-                                     PipelineIterationInfo {get;}
-TargetObject          Property       System.Object TargetObject {get;}                             
-PSMessageDetails      ScriptProperty System.Object PSMessageDetails {get=& { Set-StrictMode -Version 1; 
-                                     $this.Exception.InnerException.PSMessageDetails };}
-
-</pre>
+	Name                  MemberType     Definition
+	----                  ----------     ----------
+	Equals                Method         bool Equals(System.Object obj)
+	GetHashCode           Method         int GetHashCode()
+	GetObjectData         Method         System.Void GetObjectData(System.Runtime.Serialization.SerializationInfo info, 
+										 System.Runtime.Serialization.StreamingContext context)
+	GetType               Method         type GetType()                                        
+	ToString              Method         string ToString()                                     
+	CategoryInfo          Property       System.Management.Automation.ErrorCategoryInfo CategoryInfo {get;}
+	ErrorDetails          Property       System.Management.Automation.ErrorDetails ErrorDetails {get;set;} 
+	Exception             Property       System.Exception Exception {get;}                                 
+	FullyQualifiedErrorId Property       System.String FullyQualifiedErrorId {get;}                        
+	InvocationInfo        Property       System.Management.Automation.InvocationInfo InvocationInfo {get;} 
+	PipelineIterationInfo Property       System.Collections.ObjectModel.ReadOnlyCollection`1[[System.Int32, mscorlib, 
+										 Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] 
+										 PipelineIterationInfo {get;}
+	TargetObject          Property       System.Object TargetObject {get;}                             
+	PSMessageDetails      ScriptProperty System.Object PSMessageDetails {get=& { Set-StrictMode -Version 1; 
+										 $this.Exception.InnerException.PSMessageDetails };}
 
 Of course, after having figured this out, I thought "Hmm... I bet others might have the same question about 
 getting more exception detail inside a catch block", and so was born this blog entry. Hope it helps!
