@@ -14,6 +14,7 @@ most appropriate verb for this function given the intent and circumstances. It i
 performs an individual build, I hope even PowerShell gurus agree it is the best choice.
 
 Anyway, I've listed the code for this function below. Please note a couple of things:
+
 * `$SolutionFile` - This is a relative path to the solution file... but if you don't specify anything for `$SourceCodePath` then it would need to be the 
 full absolute path to the solution file.
 * v2.0.50727 - Again, I'm using .Net Framework v2 for my work, but this could easily be updated for v3.5 or v4.
