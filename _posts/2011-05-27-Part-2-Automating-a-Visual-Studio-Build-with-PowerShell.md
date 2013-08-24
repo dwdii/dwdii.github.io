@@ -57,7 +57,7 @@ function Build-VisualStudioSolution
         [ValidateNotNullOrEmpty()]             
         [string] $BuildLogFile,            
                
-	[ValidateNotNullOrEmpty()]                  
+        [ValidateNotNullOrEmpty()]                  
         [string] $BuildLogOutputPath = $env:userprofile + "\Desktop\"            
     )            
                 
