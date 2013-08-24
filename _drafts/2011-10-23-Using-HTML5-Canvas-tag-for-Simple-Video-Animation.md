@@ -88,13 +88,13 @@ Putting it all together, the following code presents the complete body segment o
 
 		function imageLoaded()
 		{
-			var drawingCanvas = document.getElementById('imgCanvas');
+			var drawingCanvas = document.getElementById("imgCanvas");
 
 			// Feature check (browser supports canvas)
 			if(drawingCanvas.getContext) 
 			{
 				// Get 2 dimensional drawing context
-				var context = drawingCanvas.getContext('2d');
+				var context = drawingCanvas.getContext("2d");
 
 				// Draw the image on the canvas
 				context.drawImage(newImg,0,0,640,480,0,0,800,600);
