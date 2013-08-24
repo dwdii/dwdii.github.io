@@ -21,4 +21,8 @@ footer {
 #mcsa-logo {
       
 }
-    
+
+.PostDate {
+    color: darkgray;
+    font-size: smaller;
+}
