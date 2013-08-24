@@ -41,7 +41,8 @@ catch
 {% endhighlight %}
 
 When I run through `Get-Member`, the `$_` object in the catch block returns the following result:
-
+{% raw %}
+<pre>
 	   TypeName: System.Management.Automation.ErrorRecord
 
 	Name                  MemberType     Definition
@@ -63,6 +64,8 @@ When I run through `Get-Member`, the `$_` object in the catch block returns the 
 	TargetObject          Property       System.Object TargetObject {get;}                             
 	PSMessageDetails      ScriptProperty System.Object PSMessageDetails {get=& { Set-StrictMode -Version 1; 
 										 $this.Exception.InnerException.PSMessageDetails };}
+</pre>
+{% endraw %}
 
 Of course, after having figured this out, I thought "Hmm... I bet others might have the same question about 
 getting more exception detail inside a catch block", and so was born this blog entry. Hope it helps!
