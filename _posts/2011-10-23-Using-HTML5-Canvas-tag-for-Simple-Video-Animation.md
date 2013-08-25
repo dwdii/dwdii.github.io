@@ -15,7 +15,14 @@ effect via the HTML meta tag, as shown below.
 <meta http-equiv="Refresh" content="1;url=/cam/">
 {% endhighlight %}
 
-
+After playing with this for a little while and dealing with the "stop motion" video, constant page flicker and inability 
+to zoom, etc, I decided to investigate the use of JavaScript to refresh the image while being able to stay on the same 
+HTML page. I came up with a decent solution involving setTimeout, the `Image.onLoad` event and CSS z-index, but apparently the 
+iPhone Safari doesn't support the z-index property (or maybe something else was wrong). Anyway, I remembered something from a 
+presentation I saw on HTML5 about the new Canvas tag for 2-d graphics via JavaScript and decided to see how it might apply to my 
+situation. As it turns out, the canvas support in iPhone Safari is great and I am able to use the same code in my Internet Explorer 9 
+and iPhone Safari without issue. What follows is the final HTML5/Javascript I have written to refresh the camera image at 
+approximately 10 frames/second along with some interesting points to note.
 
 Thanks for reading!
 
