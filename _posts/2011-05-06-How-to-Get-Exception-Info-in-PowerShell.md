@@ -97,6 +97,11 @@ When I run through `Get-Member`, the `$_` object in the catch block returns the 
 		<td>System.String FullyQualifiedErrorId {get;}</td>
 	</tr>
 	<tr>
+		<td>InvocationInfo</td>
+		<td>Property</td>
+		<td>System.Management.Automation.InvocationInfo InvocationInfo {get;}</td>
+	</tr>
+	<tr>
 		<td></td>
 		<td></td>
 		<td></td>
