@@ -63,6 +63,16 @@ When I run through `Get-Member`, the `$_` object in the catch block returns the 
 		<td>Method</td>
 		<td>System.Void GetObjectData(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context)</td>
 	</tr>
+	<tr>
+		<td>GetType</td>
+		<td>Method</td>
+		<td>type GetType()</td>
+	</tr>
+	<tr>
+		<td>ToString</td>
+		<td>Method</td>
+		<td>string ToString()</td>
+	</tr>
 </table>
 
 Of course, after having figured this out, I thought "Hmm... I bet others might have the same question about 
