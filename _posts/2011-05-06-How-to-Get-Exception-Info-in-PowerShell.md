@@ -44,6 +44,9 @@ When I run through `Get-Member`, the `$_` object in the catch block returns the 
 
 <table class="PoshGetMember">
 	<tr>
+		<th>TypeName: System.Management.Automation.ErrorRecord</th>
+	</tr>
+	<tr>
 		<th align="left">Name</th>
 		<th align="left">MemberType</th>
 		<th align="left">Definition</th>
