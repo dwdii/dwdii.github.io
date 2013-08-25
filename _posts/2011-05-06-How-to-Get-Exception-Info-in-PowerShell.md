@@ -44,10 +44,6 @@ When I run through `Get-Member`, the `$_` object in the catch block returns the 
 
 <table>
 	<tr>
-		<th colspan="3">TypeName: System.Management.Automation.ErrorRecord</th>
-	</tr>
-	</tr>
-	<tr>
 		<th>Name</th>
 		<th>MemberType</th>
 		<th>Definition</th>
