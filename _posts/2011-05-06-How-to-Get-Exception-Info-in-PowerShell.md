@@ -92,6 +92,11 @@ When I run through `Get-Member`, the `$_` object in the catch block returns the 
 		<td>System.Exception Exception {get;}</td>
 	</tr>
 	<tr>
+		<td>FullyQualifiedErrorId</td>
+		<td>Property</td>
+		<td>System.String FullyQualifiedErrorId {get;}</td>
+	</tr>
+	<tr>
 		<td></td>
 		<td></td>
 		<td></td>
