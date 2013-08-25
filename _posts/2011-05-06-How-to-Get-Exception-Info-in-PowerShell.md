@@ -114,9 +114,10 @@ When I run through `Get-Member`, the `$_` object in the catch block returns the 
 		<td>System.Object TargetObject {get;}</td>
 	</tr>
 	<tr>
-		<td></td>
-		<td></td>
-		<td></td>
+		<td>PSMessageDetails</td>
+		<td>ScriptProperty</td>
+		<td>System.Object PSMessageDetails {get=& { Set-StrictMode -Version 1; 
+										 $this.Exception.InnerException.PSMessageDetails };}</td>
 	</tr>
 </table>
 
