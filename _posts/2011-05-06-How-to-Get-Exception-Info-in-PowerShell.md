@@ -8,7 +8,7 @@ tags: PowerShell Exceptions
 For the last couple of weeks I have been required to import a data log file (CSV) from a legacy SCADA system into my centralized 
 data management system. It occured to me today that I might be able to use PowerShell to automate some of the importing steps 
 which include import to a DEV, QA and Production system. I'm still working on this script, but in the process of developing it, I 
-had a need to learn more about an exception that was occuring in the script. I had my try/catch block already specified, but was simply 
+had a need to learn more about an exception that was occuring in the script. I had my try catch block already specified, but was simply 
 using `Write-Error`, as in the following code sample, to report a generic message "Failed to..." whenever the catch block was executed.
 
 {% highlight powershell linenos %}
