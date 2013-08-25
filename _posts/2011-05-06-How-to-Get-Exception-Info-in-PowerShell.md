@@ -41,6 +41,7 @@ catch
 {% endhighlight %}
 
 When I run through `Get-Member`, the `$_` object in the catch block returns the following result:
+
 {% raw %}
 <pre>
 	   TypeName: System.Management.Automation.ErrorRecord
