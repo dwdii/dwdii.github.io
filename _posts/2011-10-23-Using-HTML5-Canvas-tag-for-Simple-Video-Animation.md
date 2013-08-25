@@ -24,6 +24,13 @@ situation. As it turns out, the canvas support in iPhone Safari is great and I a
 and iPhone Safari without issue. What follows is the final HTML5/Javascript I have written to refresh the camera image at 
 approximately 10 frames/second along with some interesting points to note.
 
+First, the HTML5 canvas tag: simple, but some important attributes. The HTML5 width and height attributes for a canvas are not the 
+same as the CSS width and height attributes. This fact had me stumped for a while until I found [this post on StackOverflow](http://stackoverflow.com/questions/6023327/does-html5-canvas-pixel-size-depend-on-the-canvas-size). 
+The important take away for me was that I should set the canvas tag's width and height to the size I want the canvas, and I could 
+ignore the CSS width and height. I had been specifying the canvas size in CSS as I'm sure many would do naturally in order to 
+centralize the styling. Anyway, it turns out that for canvas, HTML5 != CSS in terms of height and width. For simplicity, I dropped 
+the CSS width and height and only did the following:
+
 Thanks for reading!
 
 [Daniel (@dwdii)](http://twitter.com/dwdii)
