@@ -42,31 +42,32 @@ catch
 
 When I run through `Get-Member`, the `$_` object in the catch block returns the following result:
 
-{% raw %}
-<pre>
-	   TypeName: System.Management.Automation.ErrorRecord
-
-	Name                  MemberType     Definition
-	----                  ----------     ----------
-	Equals                Method         bool Equals(System.Object obj)
-	GetHashCode           Method         int GetHashCode()
-	GetObjectData         Method         System.Void GetObjectData(System.Runtime.Serialization.SerializationInfo info, 
-										 System.Runtime.Serialization.StreamingContext context)
-	GetType               Method         type GetType()                                        
-	ToString              Method         string ToString()                                     
-	CategoryInfo          Property       System.Management.Automation.ErrorCategoryInfo CategoryInfo {get;}
-	ErrorDetails          Property       System.Management.Automation.ErrorDetails ErrorDetails {get;set;} 
-	Exception             Property       System.Exception Exception {get;}                                 
-	FullyQualifiedErrorId Property       System.String FullyQualifiedErrorId {get;}                        
-	InvocationInfo        Property       System.Management.Automation.InvocationInfo InvocationInfo {get;} 
-	PipelineIterationInfo Property       System.Collections.ObjectModel.ReadOnlyCollection'1[[System.Int32, mscorlib, 
-										 Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] 
-										 PipelineIterationInfo {get;}
-	TargetObject          Property       System.Object TargetObject {get;}                             
-	PSMessageDetails      ScriptProperty System.Object PSMessageDetails {get=& { Set-StrictMode -Version 1; 
-										 $this.Exception.InnerException.PSMessageDetails };}
-</pre>
-{% endraw %}
+<table>
+	<tr>
+		<th colspan="3">TypeName: System.Management.Automation.ErrorRecord</th>
+	</tr>
+	</tr>
+	<tr>
+		<th>Name</th>
+		<th>MemberType</th>
+		<th>Definition</th>
+	</tr>
+	<tr>
+		<td>Equals</td>
+		<td>Method</td>
+		<td>bool Equals(System.Object obj)</td>
+	</tr>
+	<tr>
+		<td>GetHashCode</td>
+		<td>Method</td>
+		<td>int GetHashCode()</td>
+	</tr>
+	<tr>
+		<td>GetObjectData</td>
+		<td>Method</td>
+		<td>System.Void GetObjectData(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context)</td>
+	</tr>
+</table>
 
 Of course, after having figured this out, I thought "Hmm... I bet others might have the same question about 
 getting more exception detail inside a catch block", and so was born this blog entry. Hope it helps!
