@@ -102,10 +102,18 @@ When I run through `Get-Member`, the `$_` object in the catch block returns the 
 		<td>System.Management.Automation.InvocationInfo InvocationInfo {get;}</td>
 	</tr>
 	<tr>
+		<td>PipelineIterationInfo</td>
+		<td>Property</td>
+		<td>System.Collections.ObjectModel.ReadOnlyCollection'1[[System.Int32, mscorlib, 
+										 Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] 
+										 PipelineIterationInfo {get;}</td>
+	</tr>
+	<tr>
 		<td></td>
 		<td></td>
 		<td></td>
 	</tr>
+	
 </table>
 
 Of course, after having figured this out, I thought "Hmm... I bet others might have the same question about 
