@@ -87,6 +87,11 @@ When I run through `Get-Member`, the `$_` object in the catch block returns the 
 		<td>System.Management.Automation.ErrorDetails ErrorDetails {get;set;}</td>
 	</tr>
 	<tr>
+		<td>Exception</td>
+		<td>Property</td>
+		<td>System.Exception Exception {get;}</td>
+	</tr>
+	<tr>
 		<td></td>
 		<td></td>
 		<td></td>
