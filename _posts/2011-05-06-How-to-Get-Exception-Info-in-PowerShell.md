@@ -109,11 +109,15 @@ When I run through `Get-Member`, the `$_` object in the catch block returns the 
 										 PipelineIterationInfo {get;}</td>
 	</tr>
 	<tr>
+		<td>TargetObject</td>
+		<td>Property</td>
+		<td>System.Object TargetObject {get;}</td>
+	</tr>
+	<tr>
 		<td></td>
 		<td></td>
 		<td></td>
 	</tr>
-	
 </table>
 
 Of course, after having figured this out, I thought "Hmm... I bet others might have the same question about 
