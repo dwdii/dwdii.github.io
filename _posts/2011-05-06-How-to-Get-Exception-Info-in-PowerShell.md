@@ -52,21 +52,6 @@ When I run through `Get-Member`, the `$_` object in the catch block returns the 
 		<th>MemberType</th>
 		<th>Definition</th>
 	</tr>
-	<tr>
-		<td>Equals</td>
-		<td>Method</td>
-		<td>bool Equals(System.Object obj)</td>
-	</tr>
-	<tr>
-		<td>GetHashCode</td>
-		<td>Method</td>
-		<td>int GetHashCode()</td>
-	</tr>
-	<tr>
-		<td>GetObjectData</td>
-		<td>Method</td>
-		<td>System.Void GetObjectData(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context)</td>
-	</tr>
 </table>
 
 Of course, after having figured this out, I thought "Hmm... I bet others might have the same question about 
