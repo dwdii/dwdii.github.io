@@ -9,6 +9,10 @@ footer {
     margin-top: 15px;
 }
 
+td {
+    vertical-align: top;
+}
+
 .msftcertlogo {
     width: 130px;
     margin-bottom: 20px;  

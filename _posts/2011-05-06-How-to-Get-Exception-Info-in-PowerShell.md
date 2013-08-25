@@ -44,9 +44,9 @@ When I run through `Get-Member`, the `$_` object in the catch block returns the 
 
 <table>
 	<tr>
-		<th>Name</th>
-		<th>MemberType</th>
-		<th>Definition</th>
+		<th align="left">Name</th>
+		<th align="left">MemberType</th>
+		<th align="left">Definition</th>
 	</tr>
 	<tr>
 		<td>Equals</td>
