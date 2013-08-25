@@ -25,8 +25,14 @@ td {
 
 .PoshGetMember {
     font-family: 'Courier New', monospace;
+    font-size: smaller;
 }
       
+.PoshGetMember td,th {
+    padding-left: 7px;
+}
+
+
 #headshot {
     margin-bottom: 20px;
 }
