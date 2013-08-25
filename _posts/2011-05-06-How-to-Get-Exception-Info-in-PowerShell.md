@@ -1,6 +1,6 @@
 ---
 layout: post
-title: How to Get Error/Exception Details in PowerShell Catch Block
+title: How to Get Error Exception Details in PowerShell Catch Block
 tags: PowerShell Exceptions
 ---
 {{ page.title }}
