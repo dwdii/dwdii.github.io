@@ -1,7 +1,8 @@
 ---
 layout: post
-title: My Second Jekyl Post!
+title: GitHub Pages, Jekyll and the Ampersand
+tags: Jekyll
 ---
-My Second Jekyl Post!
+{{ page.title }}
 ====================
-Um... second one?
+Why am I getting this "page build failed" error on my GitHub Pages checkin?
