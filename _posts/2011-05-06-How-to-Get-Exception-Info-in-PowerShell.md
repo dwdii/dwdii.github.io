@@ -76,6 +76,11 @@ When I run through `Get-Member`, the `$_` object in the catch block returns the 
 		<td>Method</td>
 		<td>string ToString()</td>
 	</tr>
+	<tr>
+		<td>CategoryInfo</td>
+		<td>Property</td>
+		<td>System.Management.Automation.ErrorCategoryInfo CategoryInfo {get;}</td>
+	</tr>
 </table>
 
 Of course, after having figured this out, I thought "Hmm... I bet others might have the same question about 
