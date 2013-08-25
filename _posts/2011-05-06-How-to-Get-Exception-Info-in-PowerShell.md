@@ -42,7 +42,7 @@ catch
 
 When I run through `Get-Member`, the `$_` object in the catch block returns the following result:
 
-<table>
+<table class="PoshGetMember">
 	<tr>
 		<th align="left">Name</th>
 		<th align="left">MemberType</th>

@@ -17,6 +17,15 @@ td {
     width: 130px;
     margin-bottom: 20px;  
 }
+
+.PostDate {
+    color: darkgray;
+    font-size: smaller;
+}
+
+.PoshGetMember {
+    font-family: 'Courier New', monospace;
+}
       
 #headshot {
     margin-bottom: 20px;
@@ -26,7 +35,3 @@ td {
       
 }
 
-.PostDate {
-    color: darkgray;
-    font-size: smaller;
-}
