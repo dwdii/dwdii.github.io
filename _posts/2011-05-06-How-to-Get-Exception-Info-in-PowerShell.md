@@ -81,6 +81,16 @@ When I run through `Get-Member`, the `$_` object in the catch block returns the 
 		<td>Property</td>
 		<td>System.Management.Automation.ErrorCategoryInfo CategoryInfo {get;}</td>
 	</tr>
+	<tr>
+		<td>ErrorDetails</td>
+		<td>Property</td>
+		<td>System.Management.Automation.ErrorDetails ErrorDetails {get;set;}</td>
+	</tr>
+	<tr>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
 </table>
 
 Of course, after having figured this out, I thought "Hmm... I bet others might have the same question about 
