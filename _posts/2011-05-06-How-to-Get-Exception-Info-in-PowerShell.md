@@ -116,8 +116,8 @@ When I run through `Get-Member`, the `$_` object in the catch block returns the 
 	<tr>
 		<td>PSMessageDetails</td>
 		<td>ScriptProperty</td>
-		<td>System.Object PSMessageDetails {get=& { Set-StrictMode -Version 1; 
-										 $this.Exception.InnerException.PSMessageDetails };}</td>
+		<td>{% raw %}System.Object PSMessageDetails {get=& { Set-StrictMode -Version 1; 
+										 $this.Exception.InnerException.PSMessageDetails };}{% endraw %}</td>
 	</tr>
 </table>
 
