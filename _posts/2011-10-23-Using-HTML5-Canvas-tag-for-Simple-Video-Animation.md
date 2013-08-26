@@ -31,6 +31,10 @@ ignore the CSS width and height. I had been specifying the canvas size in CSS as
 centralize the styling. Anyway, it turns out that for canvas, HTML5 != CSS in terms of height and width. For simplicity, I dropped 
 the CSS width and height and only did the following:
 
+{% highlight html linenos %}
+<canvas id="imgCanvas" width="800" height="600" style="border-style:solid;border-color:Gray"/>
+{% endhighlight %}
+
 Thanks for reading!
 
 [Daniel (@dwdii)](http://twitter.com/dwdii)
