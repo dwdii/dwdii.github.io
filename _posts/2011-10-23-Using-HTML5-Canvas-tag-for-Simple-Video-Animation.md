@@ -61,6 +61,50 @@ cache and fetch the new image from the camera.
 
 Putting it all together, the following code presents the complete body segment of the HTML page.
 
+{% highlight html linenos %}
+<body style="background-color:Black;text-align:center;">
+
+	<canvas id="imgCanvas" width="800" height="600" style="border-style:solid;border-color:Gray"/>
+
+	<div id="txt">0</div>
+
+    <script type="text/javascript">
+		var iUpdateMs = 100;
+		var count = 0;
+		var newImg;
+
+		setTimeout("imageupdate()", iUpdateMs );
+
+		function imageupdate()
+		{
+			document.getElementById("txt").innerHTML = count++;
+
+			newImg = new Image();
+			newImg.Id = "camimg" + count;
+			newImg.Name = newImg.Id;
+			newImg.onload = imageLoaded;
+			newImg.src = "http://192.168.1.5/image.jpg?u=" + count;
+		}
+
+		function imageLoaded()
+		{
+			var drawingCanvas = document.getElementById("imgCanvas");
+
+			// Feature check (browser supports canvas)
+			if(drawingCanvas.getContext) 
+			{
+				// Get 2 dimensional drawing context
+				var context = drawingCanvas.getContext("2d");
+
+				// Draw the image on the canvas
+				context.drawImage(newImg,0,0,640,480,0,0,800,600);
+			}
+
+			setTimeout("imageupdate()", iUpdateMs);
+		}
+    </script>
+</body>
+{% endhighlight %}
 
 Thanks for reading!
 
