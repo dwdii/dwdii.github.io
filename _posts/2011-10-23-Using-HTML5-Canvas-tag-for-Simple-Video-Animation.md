@@ -38,7 +38,7 @@ the CSS width and height and only did the following:
 Another "gotcha" I had to deal with was the issue with reloading an image via JavaScript given the caching "help" which browsers 
 tend to provide. Interestingly, the workaround I discovered was effectively the same as the camera manufacturer's approach. 
 I keep a count variable in the script block and increment it each time before loading the new image. This counter is then 
-appended to the image URL as part of the query string, thereby making it just unique enough to bypass the browser’s local 
+appended to the image URL as part of the query string, thereby making it just unique enough to bypass the browser&apos;s local 
 cache and fetch the new image from the camera.
 
 Thanks for reading!
