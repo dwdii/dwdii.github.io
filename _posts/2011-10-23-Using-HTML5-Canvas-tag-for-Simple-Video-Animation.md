@@ -41,6 +41,24 @@ I keep a count variable in the script block and increment it each time before lo
 appended to the image URL as part of the query string, thereby making it just unique enough to bypass the browser&apos;s local 
 cache and fetch the new image from the camera.
 
+{% highlight js linenos %}
+    var iUpdateMs = 100;
+    var count = 0;
+
+    setTimeout("imageupdate()", iUpdateMs );
+
+    function imageupdate()
+    {
+        document.getElementById("txt").innerHTML = count++;
+
+        newImg = new Image();
+        newImg.Id = "camimg" + count;
+        newImg.Name = newImg.Id;
+        newImg.onload = imageLoaded;
+        newImg.src = "http://192.168.1.5/image.jpg?u=" + count;
+    }
+{% endhighlight %}
+
 Thanks for reading!
 
 [Daniel (@dwdii)](http://twitter.com/dwdii)
