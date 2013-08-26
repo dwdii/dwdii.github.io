@@ -1,6 +1,6 @@
 ---
 layout: post
-title: MapRedux – #PowerShell and #Big Data
+title: MapRedux – PowerShell and Big Data
 tags: PowerShell MapReduce
 ---
 {{ page.title }}
