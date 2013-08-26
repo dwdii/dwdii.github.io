@@ -59,6 +59,9 @@ cache and fetch the new image from the camera.
     }
 {% endhighlight %}
 
+Putting it all together, the following code presents the complete body segment of the HTML page.
+
+
 Thanks for reading!
 
 [Daniel (@dwdii)](http://twitter.com/dwdii)
