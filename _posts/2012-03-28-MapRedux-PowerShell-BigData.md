@@ -20,3 +20,7 @@ Quite simply, the ScriptBlock feature combined with the ability of `Invoke-Comma
 much of the plumbing of a distributed computing environment. There are some limiting factors of course. Microsoft provided some default 
 settings which prevent PowerShell from taking over a network without administrative approval first. But even with just one adjustment, 
 a given Windows-based machine can become a node in a MapReduce-style distributed computing environment. 
+
+Ok, so enough introduction. Let's talk about the code. First, any machine that will participate as a remote "node" will need 
+WinRM enabled for remote access, as shown below. This is not exactly practical for hundreds of intended nodes, but for one (or five) 
+machines in a test environment it does just fine. 
