@@ -15,3 +15,8 @@ Anyway, within the past couple of weeks I have been thinking about PowerShell a 
 approach and it occured to me that PowerShell's support for Windows Remote Management (WinRM), and some other inherent features of PowerShell 
 might lend themselves particularly well to a simple implementation of the MapReduce framework. I fired up my PowerShell ISE and started 
 writing just to see where it would take me.
+
+Quite simply, the ScriptBlock feature combined with the ability of `Invoke-Command` to create remote jobs on networked servers provides 
+much of the plumbing of a distributed computing environment. There are some limiting factors of course. Microsoft provided some default 
+settings which prevent PowerShell from taking over a network without administrative approval first. But even with just one adjustment, 
+a given Windows-based machine can become a node in a MapReduce-style distributed computing environment. 
