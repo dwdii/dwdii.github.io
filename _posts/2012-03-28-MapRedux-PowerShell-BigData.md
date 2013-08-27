@@ -25,7 +25,7 @@ Ok, so enough introduction. Let's talk about the code. First, any machine that w
 WinRM enabled for remote access, as shown below. This is not exactly practical for hundreds of intended nodes, but for one (or five) 
 machines in a test environment it does just fine. 
 
-    C:&gt; winrm quickconfig
+    C:> winrm quickconfig
     WinRM is not set up to receive requests on this machine.
     The following changes must be made:
 
