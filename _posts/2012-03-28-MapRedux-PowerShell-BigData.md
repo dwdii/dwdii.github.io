@@ -41,3 +41,6 @@ Invoke-MapRedux
 ---------------
 Moving on, now that you have one or more remote "nodes" enabled, you can consider the actual Map and Reduce algorithms. Consider the following snippet:
 
+{% highlight powershell linenos %}
+    $MyMrResults = Invoke-MapRedux -MapReduceItem $Mr -ComputerName $MyNodes -DataSet $dataset -Verbose
+{% endhighlight %}
