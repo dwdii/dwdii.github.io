@@ -37,3 +37,7 @@ machines in a test environment it does just fine.
 Alternatively, you could take the approach described in the [Remotely enable PSRemoting post](http://social.technet.microsoft.com/Forums/en-US/winserverpowershell/thread/0800c68c-8cfb-4d6f-9c05-0e1a33412941/) 
 from the TechNet forum and use PowerShell to create remote scheduled tasks that will call [Enable-PSRemoting](http://technet.microsoft.com/en-us/library/dd819498.aspx) on each intended node.
 
+Invoke-MapRedux
+---------------
+Moving on, now that you have one or more remote "nodes" enabled, you can consider the actual Map and Reduce algorithms. Consider the following snippet:
+
