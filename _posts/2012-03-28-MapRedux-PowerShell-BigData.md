@@ -48,3 +48,7 @@ Moving on, now that you have one or more remote "nodes" enabled, you can conside
 `Invoke-MapRedux` takes an instance of a MapReduceItem which references the Map and Reduce scriptblocks, an array of computer names which 
 are the remote nodes, and the initial data set to be processed. As simple as that, you can start working with concepts of big data 
 and the MapReduce paradigm. Now, how did we get there? 
+
+I have published the initial version of my [PsMapRedux PowerShell Module on GitHub](https://github.com/dwdii/PsMapRedux). The PsMapRedux module provides the Invoke-MapRedux function 
+described above. Feel free to browse the underlying code and even contribute to the project! In a later post, I plan to show some of the 
+inner workings of the module, but for now let's move on to how the Map and Reduce functions are defined. 
