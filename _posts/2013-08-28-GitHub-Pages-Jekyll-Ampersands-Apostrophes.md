@@ -20,31 +20,31 @@ and code snippets back up to GitHub, I have deduced some gotchas that come from 
 from webpages into markdown. I hope the following table can illustrate simply to others what to look
 out for and how to rectify. Interestingly, the "Greater than" sign (">") does not need to be encoded.
 
-<table>
+<table style="border-width:1px;border-style:solid;padding:3px;">
 	<tr>
-		<th>Yes</th>
 		<th>No</th>
+		<th>Yes</th>
 		<th>Description</th>
 	</tr>
 	<tr>
-		<td>&amp;amp;</td>
 		<td>&amp;</td>
+		<td>&amp;amp;</td>
 		<td>Ampersand</td>
 	</tr>
 	<tr>
-		<td>&amp;apos;</td>
 		<td>&apos;</td>
+		<td>&amp;apos;</td>
 		<td>Apostrophe</td>
 	</tr>
 	<tr>
-		<td>&amp;&#35;35;</td>
 		<td>&#35;</td>
+		<td>&amp;&#35;35;</td>
 		<td>Hash / Number signs</td>
 	</tr>
 	<tr>
+		<td>(???)</td>
 		<td>-</td>
-		<td>&#96; (???)</td>
-		<td>Long hyphen (96) - i.e. copy/paste from Word</td>
+		<td>Long hyphen (hex byte 96) (i.e. copy/paste from Word)</td>
 	</tr>
 </table>
 
