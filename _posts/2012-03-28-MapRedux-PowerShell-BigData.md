@@ -52,3 +52,9 @@ and the MapReduce paradigm. Now, how did we get there?
 I have published the initial version of my [PsMapRedux PowerShell Module on GitHub](https://github.com/dwdii/PsMapRedux). The PsMapRedux module provides the Invoke-MapRedux function 
 described above. Feel free to browse the underlying code and even contribute to the project! In a later post, I plan to show some of the 
 inner workings of the module, but for now let's move on to how the Map and Reduce functions are defined. 
+
+Map
+---
+Both the Map and Reduce functions need to follow a prescribed prototype. The prototype for a Map function in the MapRedux module is as follows. 
+A simple scriptblock that takes one PsObject parameter and returns a hashtable. It is important to note that the PsObject `$dataset` parameter is a 
+MapRedux custom object that has a "Data" property which offers an array of data to be processed by the Map function.
