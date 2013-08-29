@@ -44,3 +44,7 @@ Moving on, now that you have one or more remote "nodes" enabled, you can conside
 {% highlight powershell linenos %}
     $MyMrResults = Invoke-MapRedux -MapReduceItem $Mr -ComputerName $MyNodes -DataSet $dataset -Verbose
 {% endhighlight %}
+
+`Invoke-MapRedux` takes an instance of a MapReduceItem which references the Map and Reduce scriptblocks, an array of computer names which 
+are the remote nodes, and the initial data set to be processed. As simple as that, you can start working with concepts of big data 
+and the MapReduce paradigm. Now, how did we get there? 
