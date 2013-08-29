@@ -58,3 +58,26 @@ Map
 Both the Map and Reduce functions need to follow a prescribed prototype. The prototype for a Map function in the MapRedux module is as follows. 
 A simple scriptblock that takes one PsObject parameter and returns a hashtable. It is important to note that the PsObject `$dataset` parameter is a 
 MapRedux custom object that has a "Data" property which offers an array of data to be processed by the Map function.
+
+{% highlight powershell linenos %}
+	$aMap = 
+	{
+		Param
+		(
+			[PsObject] $dataset
+		)
+
+		# Indicate the job is running on the remote node.
+		Write-Host ($env:computername + "::Map");
+
+		# The hashtable to return
+		$list = @{};
+
+		# ... Perform the mapping work and prepare the $list hashtable result with your custom PSObject...
+		# ... The $dataset has a single 'Data' property which contains an array of data rows 
+		#     which is a subset of the originally submitted data set.
+
+		# Return the hashtable (Key, PSObject)
+		Write-Output $list;
+	}
+{% endhighlight %}
