@@ -22,29 +22,29 @@ out for and how to rectify. Interestingly, the "Greater than" sign (">") does no
 
 <table id="PageBuildFailedGotchas">
 	<tr>
-		<th>No</th>
-		<th>Yes</th>
-		<th>Description</th>
+		<th class="text-error">No</th>
+		<th class="text-success">Yes</th>
+		<th class="leftAlign">Description</th>
 	</tr>
 	<tr>
 		<td>&amp;</td>
 		<td>&amp;amp;</td>
-		<td>Ampersand</td>
+		<td class="text-left">Ampersand</td>
 	</tr>
 	<tr>
 		<td>&apos;</td>
 		<td>&amp;apos;</td>
-		<td>Apostrophe</td>
+		<td class="text-left">Apostrophe</td>
 	</tr>
 	<tr>
 		<td>&#35;</td>
 		<td>&amp;&#35;35;</td>
-		<td>Hash / Number signs</td>
+		<td class="text-left">Hash / Number signs</td>
 	</tr>
 	<tr>
 		<td>(???)</td>
 		<td>-</td>
-		<td>Long hyphen (hex byte 96) (i.e. copy/paste from Word)</td>
+		<td class="text-left">Long hyphen (hex byte 96) (i.e. copy/paste from Word)</td>
 	</tr>
 </table>
 
