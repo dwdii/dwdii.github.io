@@ -20,7 +20,7 @@ and code snippets back up to GitHub, I have deduced some gotchas that come from 
 from webpages into markdown. I hope the following table can illustrate simply to others what to look
 out for and how to rectify. Interestingly, the "Greater than" sign (">") does not need to be encoded.
 
-<table style="border-width:1px;border-style:solid;padding:3px;">
+<table id="PageBuildFailedGotchas">
 	<tr>
 		<th>No</th>
 		<th>Yes</th>
@@ -50,3 +50,13 @@ out for and how to rectify. Interestingly, the "Greater than" sign (">") does no
 
 * These result are based on my experience when GitHub Pages was used Jekyll 1.1.2 per the
 [github-pages.gemspec](https://github.com/github/pages-gem/blob/master/github-pages.gemspec#L16)
+
+Another point: any spaces in your post file names, such as "2013-08-28-My Blog Post.md", will can converted to a "+" plus sign
+in the Jekyll post.url variable. Unfortunately, the spaces will remain in the resulting html files. As such, a 404 will be returned
+for links built from the post.url. I recommend removing all the spaces, and if you really want spacing, then use a symbol
+like the hyphen (already being used to delimit the dates). 
+
+Hope this helps you!
+
+[Daniel (@dwdii)](http://twitter.com/dwdii)
+ 

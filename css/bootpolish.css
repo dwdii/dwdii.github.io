@@ -32,6 +32,13 @@ td {
     padding-left: 7px;
 }
 
+#PageBuildFailedGotchas td,th {
+    padding: 7px;
+    text-align: center;
+    border: solid;
+    border-width: 1px;
+    border-color: gray;
+}
 
 #headshot {
     margin-bottom: 20px;
