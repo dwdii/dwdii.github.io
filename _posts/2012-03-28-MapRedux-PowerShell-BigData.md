@@ -107,3 +107,8 @@ described in the Map section.
             Write-Output $redux;
     }
 {% endhighlight %}
+
+All Together Now
+----------------
+When everything is put together in a short example script, you implement your Map and Reduce functions, query for some starting data, 
+build the `MapReduxItem` via `New-MapReduxItem` and call `Invoke-MapRedux` to get the process started:
