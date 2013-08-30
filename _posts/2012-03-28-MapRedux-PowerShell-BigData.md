@@ -87,3 +87,23 @@ Reduce
 Likewise, with the Reduce function a simple prototype must be followed which takes a `$key` and a result `$dataset` from the MapRedux's 
 partitioning function (which joins the Map results by key). Again, the $dataset is a MapRedux custom object that has a "Data" property as 
 described in the Map section.
+
+{% highlight powershell linenos %}
+     $aReduce =
+     { 
+            Param
+            (
+                [object] $key,
+
+                [PSObject] $dataset
+            )
+
+            Write-Host ($env:computername + "::Reduce - Count: " + $dataset.Data.Count)
+
+            # The hashtable to return
+            $redux = @{};
+
+            # Return    
+            Write-Output $redux;
+    }
+{% endhighlight %}
