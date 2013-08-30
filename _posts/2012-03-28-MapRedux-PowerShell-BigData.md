@@ -116,7 +116,7 @@ build the `MapReduxItem` via `New-MapReduxItem` and call `Invoke-MapRedux` to ge
 {% highlight powershell linenos %}
     # Import the MapRedux and SQL Server providers
     Import-Module "MapRedux"
-    Import-Module “sqlps” -DisableNameChecking
+    Import-Module "sqlps" -DisableNameChecking
 
     # Query the database for a dataset
     Set-Location SQLSERVER:\sql\dbserver1\default\databases\myDb
