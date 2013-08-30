@@ -112,3 +112,91 @@ All Together Now
 ----------------
 When everything is put together in a short example script, you implement your Map and Reduce functions, query for some starting data, 
 build the `MapReduxItem` via `New-MapReduxItem` and call `Invoke-MapRedux` to get the process started:
+
+{% highlight powershell linenos %}
+    # Import the MapRedux and SQL Server providers
+    Import-Module "MapRedux"
+    Import-Module “sqlps” -DisableNameChecking
+
+    # Query the database for a dataset
+    Set-Location SQLSERVER:\sql\dbserver1\default\databases\myDb
+    $query = "SELECT MyKey, Date, Value1 FROM BigData ORDER BY MyKey";
+    Write-Host "Query: $query"
+    $dataset = Invoke-SqlCmd -query $query
+
+    # Build the Map function
+    $MyMap =
+    { 
+        Param
+        (
+            [PsObject] $dataset
+        )
+
+        Write-Host ($env:computername + "::Map");
+
+        $list = @{};
+        foreach($row in $dataset.Data)
+        {
+            # Write-Host ("Key: " + $row.MyKey.ToString());
+            if($list.ContainsKey($row.MyKey) -eq $true)
+            {
+                $s = $list.Item($row.MyKey);
+                $s.Sum += $row.Value1;
+                $s.Count++;
+            }
+            else
+            {
+                $s = New-Object PSObject;
+                $s | Add-Member -Type NoteProperty -Name MyKey -Value $row.MyKey;
+                $s | Add-Member -type NoteProperty -Name Sum -Value $row.Value1;
+                $list.Add($row.MyKey, $s);
+            }
+        }
+
+        Write-Output $list;
+    }
+
+    $MyReduce =
+    { 
+        Param
+        (
+            [object] $key,
+
+            [PSObject] $dataset
+        )
+
+        Write-Host ($env:computername + "::Reduce - Count: " + $dataset.Data.Count)
+
+        $redux = @{};
+        $count = 0;
+        foreach($s in $dataset.Data)
+        {
+            $sum += $s.Sum;
+            $count += 1;
+        }
+
+        # Reduce
+        $redux.Add($s.MyKey, $sum / $count);
+
+        # Return    
+        Write-Output $redux;
+    }
+
+
+    # Create the item data
+    $Mr = New-MapReduxItem "My Test MapReduce Job" $MyMap $MyReduce 
+
+    # Array of processing nodes...      
+    $MyNodes = ("node1",  
+                "node2",  
+                "node3", 
+                "node4", 
+                "localhost")
+
+    # Run the Map Reduce routine...
+    $MyMrResults = Invoke-MapRedux -MapReduceItem $Mr -ComputerName $MyNodes -DataSet $dataset -Verbose
+
+    # Show the results
+    Set-Location C:\
+    $MyMrResults | Out-GridView
+{% endhighlight %}
