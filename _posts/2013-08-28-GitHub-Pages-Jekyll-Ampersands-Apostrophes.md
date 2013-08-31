@@ -20,6 +20,7 @@ and code snippets back up to GitHub, I have deduced some gotchas that come from 
 from webpages into markdown. I hope the following table can illustrate simply to others what to look
 out for and how to rectify. Interestingly, the "Greater than" sign (">") does not need to be encoded.
 
+<div class="text-align: center">
 <table id="PageBuildFailedGotchas">
 	<tr>
 		<th class="text-error">No</th>
@@ -57,15 +58,16 @@ out for and how to rectify. Interestingly, the "Greater than" sign (">") does no
 		<td class="text-left">Long hyphen (hex byte 96) (i.e. copy/paste from Word)</td>
 	</tr>
 </table>
+</div>
 
-* These result are based on my experience when GitHub Pages was used Jekyll 1.1.2 per the
+* These results are based on my experience when GitHub Pages was using Jekyll 1.1.2 per the
 [github-pages.gemspec](https://github.com/github/pages-gem/blob/master/github-pages.gemspec#L16). Beware, there might be more,
-or just maybe these issues have been resolved such that Jekyll will encode the characters automatically.
+or just maybe these issues have been resolved by the time you are reading this, such that Jekyll will encode the characters automatically.
 
 Through my research for this post, I found the article [On the use of some MS Windows characters in HTML](http://www.cs.tut.fi/~jkorpela/www/windows-chars.html)
 by [Jukka "Yucca" Korpela](http://www.cs.tut.fi/~jkorpela/personal.html) to be quite useful. 
 
-Another point: any spaces in your post file names, such as "2013-08-28-My Blog Post.md", will can converted to a "+" plus sign
+Another point: any spaces in your post file names, such as "2013-08-28-My Blog Post.md", will be converted to a "+" plus sign
 in the Jekyll post.url variable. Unfortunately, the spaces will remain in the resulting html files. As such, a 404 will be returned
 for links built from the post.url. I recommend removing all the spaces, and if you really want spacing, then use a symbol
 like the hyphen (already being used to delimit the dates). 
