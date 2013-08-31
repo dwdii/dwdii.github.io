@@ -32,6 +32,10 @@ td {
     padding-left: 7px;
 }
 
+#PageBuildFailedGotchas {
+    align-Self:center;
+}
+
 #PageBuildFailedGotchas td,th {
     padding: 7px;
     text-align: center;

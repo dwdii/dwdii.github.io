@@ -53,7 +53,7 @@ out for and how to rectify. Interestingly, the "Greater than" sign (">") does no
 	</tr>
 	<tr>
 		<td>&#8211;</td>
-		<td>&amp;#35;8211;</td>
+		<td>&amp;&#35;8211;</td>
 		<td class="text-left">Long hyphen (hex byte 96) (i.e. copy/paste from Word)</td>
 	</tr>
 </table>
