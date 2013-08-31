@@ -26,7 +26,36 @@ out for and how to rectify. Interestingly, the "Greater than" sign (">") does no
 		<th class="text-success">Yes</th>
 		<th class="text-left">Description</th>
 	</tr>
-
+	<tr>
+		<td>&amp;</td>
+		<td>&amp;amp;</td>
+		<td class="text-left">Ampersand</td>
+	</tr>
+	<tr>
+		<td>&#8217;</td>
+		<td>&amp;&#35;8217;</td>
+		<td class="text-left">Right single quote (apostrophe)</td>
+	</tr>
+	<tr>
+		<td>&#8220;</td>
+		<td>&amp;&#35;8220;</td>
+		<td class="text-left">Curly left quote (hex byte 93)</td>
+	</tr>
+	<tr>
+		<td>&#8221;</td>
+		<td>&amp;&#35;8221;</td>
+		<td class="text-left">Curly right quote (hex byte 94)</td>
+	</tr>
+	<tr>
+		<td>&#35;</td>
+		<td>&amp;&#35;35;</td>
+		<td class="text-left">Hash / Number signs</td>
+	</tr>
+	<tr>
+		<td>&#8211;</td>
+		<td>&amp;&#35;8211;</td>
+		<td class="text-left">Long hyphen (hex byte 96) (i.e. copy/paste from Word)</td>
+	</tr>
 </table>
 
 * These results are based on my experience when GitHub Pages was using Jekyll 1.1.2 per the
@@ -37,8 +66,8 @@ Through my research for this post, I found the article [On the use of some MS Wi
 by [Jukka "Yucca" Korpela](http://www.cs.tut.fi/~jkorpela/personal.html) to be quite useful. 
 
 Another point: any spaces in your post file names, such as "2013-08-28-My Blog Post.md", will be converted to a "+" plus sign
-in the Jekyll `post.url` variable. Unfortunately, the spaces will remain in the resulting html files. As such, a 404 will be returned
-for links built from the `post.url`. I recommend removing all the spaces, and if you really want spacing, then use a symbol
+in the Jekyll post.url variable. Unfortunately, the spaces will remain in the resulting html files. As such, a 404 will be returned
+for links built from the post.url. I recommend removing all the spaces, and if you really want spacing, then use a symbol
 like the hyphen (already being used to delimit the dates). 
 
 Hope this helps you!
