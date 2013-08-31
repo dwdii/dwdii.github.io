@@ -66,8 +66,8 @@ Through my research for this post, I found the article [On the use of some MS Wi
 by [Jukka "Yucca" Korpela](http://www.cs.tut.fi/~jkorpela/personal.html) to be quite useful. 
 
 Another point: any spaces in your post file names, such as "2013-08-28-My Blog Post.md", will be converted to a "+" plus sign
-in the Jekyll post.url variable. Unfortunately, the spaces will remain in the resulting html files. As such, a 404 will be returned
-for links built from the post.url. I recommend removing all the spaces, and if you really want spacing, then use a symbol
+in the Jekyll `post.url` variable. Unfortunately, the spaces will remain in the resulting html files. As such, a 404 will be returned
+for links built from the `post.url`. I recommend removing all the spaces, and if you really want spacing, then use a symbol
 like the hyphen (already being used to delimit the dates). 
 
 Hope this helps you!
