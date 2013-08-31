@@ -26,36 +26,7 @@ out for and how to rectify. Interestingly, the "Greater than" sign (">") does no
 		<th class="text-success">Yes</th>
 		<th class="text-left">Description</th>
 	</tr>
-	<tr>
-		<td>&amp;</td>
-		<td>&amp;amp;</td>
-		<td class="text-left">Ampersand</td>
-	</tr>
-	<tr>
-		<td>&#8217;</td>
-		<td>&amp;&#35;8217;</td>
-		<td class="text-left">Right single quote (apostrophe)</td>
-	</tr>
-	<tr>
-		<td>&#8220;</td>
-		<td>&amp;&#35;8220;</td>
-		<td class="text-left">Curly left quote (hex byte 93)</td>
-	</tr>
-	<tr>
-		<td>&#8221;</td>
-		<td>&amp;&#35;8221;</td>
-		<td class="text-left">Curly right quote (hex byte 94)</td>
-	</tr>
-	<tr>
-		<td>&#35;</td>
-		<td>&amp;&#35;35;</td>
-		<td class="text-left">Hash / Number signs</td>
-	</tr>
-	<tr>
-		<td>&#8211;</td>
-		<td>&amp;&#35;8211;</td>
-		<td class="text-left">Long hyphen (hex byte 96) (i.e. copy/paste from Word)</td>
-	</tr>
+
 </table>
 
 * These results are based on my experience when GitHub Pages was using Jekyll 1.1.2 per the
