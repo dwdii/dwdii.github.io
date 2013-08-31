@@ -32,9 +32,19 @@ out for and how to rectify. Interestingly, the "Greater than" sign (">") does no
 		<td class="text-left">Ampersand</td>
 	</tr>
 	<tr>
-		<td>&apos;</td>
-		<td>&amp;apos;</td>
-		<td class="text-left">Apostrophe</td>
+		<td>&#8217;</td>
+		<td>&amp;&#35;8217;</td>
+		<td class="text-left">Right single quote (apostrophe)</td>
+	</tr>
+	<tr>
+		<td>&#8220;</td>
+		<td>&amp;&#35;8220;</td>
+		<td class="text-left">Curly left quote (hex byte 93)</td>
+	</tr>
+	<tr>
+		<td>&#8221;</td>
+		<td>&amp;&#35;8221;</td>
+		<td class="text-left">Curly right quote (hex byte 94)</td>
 	</tr>
 	<tr>
 		<td>&#35;</td>
@@ -42,14 +52,15 @@ out for and how to rectify. Interestingly, the "Greater than" sign (">") does no
 		<td class="text-left">Hash / Number signs</td>
 	</tr>
 	<tr>
-		<td>(???)</td>
-		<td>-</td>
+		<td>&#8211;</td>
+		<td>&amp;#35;8211;</td>
 		<td class="text-left">Long hyphen (hex byte 96) (i.e. copy/paste from Word)</td>
 	</tr>
 </table>
 
 * These result are based on my experience when GitHub Pages was used Jekyll 1.1.2 per the
-[github-pages.gemspec](https://github.com/github/pages-gem/blob/master/github-pages.gemspec#L16)
+[github-pages.gemspec](https://github.com/github/pages-gem/blob/master/github-pages.gemspec#L16). Beware, there might be more,
+or just maybe these issues have been resolved such that Jekyll will encode the characters automatically.
 
 Another point: any spaces in your post file names, such as "2013-08-28-My Blog Post.md", will can converted to a "+" plus sign
 in the Jekyll post.url variable. Unfortunately, the spaces will remain in the resulting html files. As such, a 404 will be returned
