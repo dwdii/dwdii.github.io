@@ -200,3 +200,14 @@ build the `MapReduxItem` via `New-MapReduxItem` and call `Invoke-MapRedux` to ge
     Set-Location C:\
     $MyMrResults | Out-GridView
 {% endhighlight %}
+
+Conclusion
+----------
+I hope you have seen through this article that PowerShell has a significant infrastructure available for distributed computing. While 
+it does take some code to expose a MapReduce-style framework, much of the work is already done and PowerShell could prove to be the the 
+easiest platform to develop and run big data jobs in your corporate data center, potentially in the Azure cloud, or certainly as an 
+academic excerise at home or school. 
+
+Follow me on Twitter to stay up to date on the continuing progress of my Powershell MapRedux module, and thanks for reading!
+
+[Daniel (@dwdii)](http://twitter.com/dwdii)
