@@ -33,7 +33,7 @@ td {
 }
 
 #PageBuildFailedGotchas {
-    align-Self:center;
+    text-align:center;
 }
 
 #PageBuildFailedGotchas td,th {
