@@ -20,7 +20,7 @@ and code snippets back up to GitHub, I have deduced some gotchas that come from 
 from webpages into markdown. I hope the following table can illustrate simply to others what to look
 out for and how to rectify. Interestingly, the "Greater than" sign (">") does not need to be encoded.
 
-<div class="text-align: center">
+<center>
 <table id="PageBuildFailedGotchas">
 	<tr>
 		<th class="text-error">No</th>
@@ -58,7 +58,7 @@ out for and how to rectify. Interestingly, the "Greater than" sign (">") does no
 		<td class="text-left">Long hyphen (hex byte 96) (i.e. copy/paste from Word)</td>
 	</tr>
 </table>
-</div>
+</center>
 
 * These results are based on my experience when GitHub Pages was using Jekyll 1.1.2 per the
 [github-pages.gemspec](https://github.com/github/pages-gem/blob/master/github-pages.gemspec#L16). Beware, there might be more,
