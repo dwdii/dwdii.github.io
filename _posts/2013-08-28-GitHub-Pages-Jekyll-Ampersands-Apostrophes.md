@@ -24,7 +24,7 @@ out for and how to rectify. Interestingly, the "Greater than" sign (">") does no
 	<tr>
 		<th class="text-error">No</th>
 		<th class="text-success">Yes</th>
-		<th class="leftAlign">Description</th>
+		<th class="text-left">Description</th>
 	</tr>
 	<tr>
 		<td>&amp;</td>
@@ -61,6 +61,9 @@ out for and how to rectify. Interestingly, the "Greater than" sign (">") does no
 * These result are based on my experience when GitHub Pages was used Jekyll 1.1.2 per the
 [github-pages.gemspec](https://github.com/github/pages-gem/blob/master/github-pages.gemspec#L16). Beware, there might be more,
 or just maybe these issues have been resolved such that Jekyll will encode the characters automatically.
+
+Through my research for this post, I found the article [On the use of some MS Windows characters in HTML](http://www.cs.tut.fi/~jkorpela/www/windows-chars.html)
+by [Jukka "Yucca" Korpela](http://www.cs.tut.fi/~jkorpela/personal.html) to be quite useful. 
 
 Another point: any spaces in your post file names, such as "2013-08-28-My Blog Post.md", will can converted to a "+" plus sign
 in the Jekyll post.url variable. Unfortunately, the spaces will remain in the resulting html files. As such, a 404 will be returned
