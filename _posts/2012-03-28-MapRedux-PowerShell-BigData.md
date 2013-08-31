@@ -4,7 +4,7 @@ title: MapRedux - PowerShell and Big Data
 tags: PowerShell MapReduce
 ---
 {{ page.title }}
-====================
+------------------
 Have you been hearing about "big data", "map reduce" and other large scale computing terms over the past couple of years and been 
 curious to dig into more detail? Have you read some of the [Apache Hadoop](http://hadoop.apache.org/) online documentation and unfortunately concluded that it 
 wasn't feasible to setup a "test" hadoop environment on your machine? More recently, I have read about some of Microsoft's work to 
@@ -37,8 +37,8 @@ machines in a test environment it does just fine.
 Alternatively, you could take the approach described in the [Remotely enable PSRemoting post](http://social.technet.microsoft.com/Forums/en-US/winserverpowershell/thread/0800c68c-8cfb-4d6f-9c05-0e1a33412941/) 
 from the TechNet forum and use PowerShell to create remote scheduled tasks that will call [Enable-PSRemoting](http://technet.microsoft.com/en-us/library/dd819498.aspx) on each intended node.
 
-Invoke-MapRedux
----------------
+### Invoke-MapRedux ### 
+
 Moving on, now that you have one or more remote "nodes" enabled, you can consider the actual Map and Reduce algorithms. Consider the following snippet:
 
 {% highlight powershell linenos %}
@@ -53,8 +53,8 @@ I have published the initial version of my [PsMapRedux PowerShell Module on GitH
 described above. Feel free to browse the underlying code and even contribute to the project! In a later post, I plan to show some of the 
 inner workings of the module, but for now let's move on to how the Map and Reduce functions are defined. 
 
-Map
----
+### Map ### 
+
 Both the Map and Reduce functions need to follow a prescribed prototype. The prototype for a Map function in the MapRedux module is as follows. 
 A simple scriptblock that takes one PsObject parameter and returns a hashtable. It is important to note that the PsObject `$dataset` parameter is a 
 MapRedux custom object that has a "Data" property which offers an array of data to be processed by the Map function.
@@ -82,8 +82,8 @@ MapRedux custom object that has a "Data" property which offers an array of data 
 	}
 {% endhighlight %}
 
-Reduce
-------
+### Reduce ### 
+
 Likewise, with the Reduce function a simple prototype must be followed which takes a `$key` and a result `$dataset` from the MapRedux's 
 partitioning function (which joins the Map results by key). Again, the $dataset is a MapRedux custom object that has a "Data" property as 
 described in the Map section.
@@ -108,8 +108,8 @@ described in the Map section.
     }
 {% endhighlight %}
 
-All Together Now
-----------------
+### All Together Now ### 
+
 When everything is put together in a short example script, you implement your Map and Reduce functions, query for some starting data, 
 build the `MapReduxItem` via `New-MapReduxItem` and call `Invoke-MapRedux` to get the process started:
 
@@ -201,8 +201,8 @@ build the `MapReduxItem` via `New-MapReduxItem` and call `Invoke-MapRedux` to ge
     $MyMrResults | Out-GridView
 {% endhighlight %}
 
-Conclusion
-----------
+### Conclusion ### 
+
 I hope you have seen through this article that PowerShell has a significant infrastructure available for distributed computing. While 
 it does take some code to expose a MapReduce-style framework, much of the work is already done and PowerShell could prove to be the the 
 easiest platform to develop and run big data jobs in your corporate data center, potentially in the Azure cloud, or certainly as an 
