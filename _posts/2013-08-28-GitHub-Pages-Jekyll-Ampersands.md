@@ -20,7 +20,7 @@ and code snippets back up to GitHub, I have deduced some gotchas that come from 
 from webpages into markdown. I hope the following table can illustrate simply to others what to look
 out for and how to rectify. Interestingly, the "Greater than" sign (">") does not need to be encoded. 
 
-
+<center>
 <table id="PageBuildFailedGotchas">
 	<tr>
 		<th class="text-error">No</th>
@@ -32,4 +32,10 @@ out for and how to rectify. Interestingly, the "Greater than" sign (">") does no
 		<td>&amp;amp;</td>
 		<td class="text-left">Ampersand</td>
 	</tr>
+	<tr>
+		<td>&#8217;</td>
+		<td>&amp;&#35;8217;</td>
+		<td class="text-left">Right single quote (apostrophe)</td>
+	</tr>
 </table>
+</center>
