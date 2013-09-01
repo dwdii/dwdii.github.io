@@ -19,3 +19,12 @@ Through some tedious troubleshooting, backing out the blog post, and re-pushing 
 and code snippets back up to GitHub, I have deduced some gotchas that come from copying and pasting
 from webpages into markdown. I hope the following table can illustrate simply to others what to look
 out for and how to rectify. Interestingly, the "Greater than" sign (">") does not need to be encoded. 
+
+
+<table id="PageBuildFailedGotchas">
+	<tr>
+		<th class="text-error">No</th>
+		<th class="text-success">Yes</th>
+		<th class="text-left">Description</th>
+	</tr>
+</table>
