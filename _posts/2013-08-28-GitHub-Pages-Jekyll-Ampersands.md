@@ -37,5 +37,10 @@ out for and how to rectify. Interestingly, the "Greater than" sign (">") does no
 		<td>&amp;&#35;8217;</td>
 		<td class="text-left">Right single quote (apostrophe)</td>
 	</tr>
+	<tr>
+		<td>&#8220;</td>
+		<td>&amp;&#35;8220;</td>
+		<td class="text-left">Curly left quote (hex byte 93)</td>
+	</tr>
 </table>
 </center>
