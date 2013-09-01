@@ -27,4 +27,9 @@ out for and how to rectify. Interestingly, the "Greater than" sign (">") does no
 		<th class="text-success">Yes</th>
 		<th class="text-left">Description</th>
 	</tr>
+	<tr>
+		<td>&amp;</td>
+		<td>&amp;amp;</td>
+		<td class="text-left">Ampersand</td>
+	</tr>
 </table>
