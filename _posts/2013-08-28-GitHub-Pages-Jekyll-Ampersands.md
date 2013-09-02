@@ -57,6 +57,9 @@ out for and how to rectify. Interestingly, the "Greater than" sign (">") does no
 		<td>&amp;&#35;8211;</td>
 		<td class="text-left">Long hyphen (hex byte 96) (i.e. copy/paste from Word)</td>
 	</tr>
-
 </table>
 </center>
+
+* These results are based on my experience when GitHub Pages was using Jekyll 1.1.2 per the
+[github-pages.gemspec](https://github.com/github/pages-gem/blob/master/github-pages.gemspec#L16). Beware, there might be more,
+or just maybe these issues have been resolved by the time you are reading this, such that Jekyll will encode the characters automatically.
