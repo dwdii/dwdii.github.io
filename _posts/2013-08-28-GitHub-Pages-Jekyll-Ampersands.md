@@ -52,5 +52,11 @@ out for and how to rectify. Interestingly, the "Greater than" sign (">") does no
 		<td>&amp;&#35;35;</td>
 		<td class="text-left">Hash / Number signs</td>
 	</tr>
+	<tr>
+		<td>&#8211;</td>
+		<td>&amp;&#35;8211;</td>
+		<td class="text-left">Long hyphen (hex byte 96) (i.e. copy/paste from Word)</td>
+	</tr>
+
 </table>
 </center>
