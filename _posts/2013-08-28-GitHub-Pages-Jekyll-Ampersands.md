@@ -42,5 +42,10 @@ out for and how to rectify. Interestingly, the "Greater than" sign (">") does no
 		<td>&amp;&#35;8220;</td>
 		<td class="text-left">Curly left quote (hex byte 93)</td>
 	</tr>
+	<tr>
+		<td>&#8221;</td>
+		<td>&amp;&#35;8221;</td>
+		<td class="text-left">Curly right quote (hex byte 94)</td>
+	</tr>
 </table>
 </center>
