@@ -47,5 +47,10 @@ out for and how to rectify. Interestingly, the "Greater than" sign (">") does no
 		<td>&amp;&#35;8221;</td>
 		<td class="text-left">Curly right quote (hex byte 94)</td>
 	</tr>
+	<tr>
+		<td>&#35;</td>
+		<td>&amp;&#35;35;</td>
+		<td class="text-left">Hash / Number signs</td>
+	</tr>
 </table>
 </center>
