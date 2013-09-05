@@ -20,6 +20,17 @@ article from Microsoft TechNet is a good example.
 4. Create Filegroup(s) within which the partitioned table will reside.
 5. Create Partitioned Table within the Schema from step 3 and on the partition scheme from step 2.
 
+I will quickly go through these steps in the following T-SQL inorder to set the stage for the area I want to focus on,
+which is the actual data loading phase of partitioned tables. 
+
+### The Data Description ###
+
+Below is a simple partition function that starts off with a single boundary at zero. Given the `RANGE RIGHT`, this means 
+that all negative numbers are in the left-most partitionm, and zero starts the right most partition initially. 
+
+{% highlight sql linenos %}
+    CREATE PARTITION FUNCTION PF1_Right (bigint) AS RANGE RIGHT FOR VALUES (0);
+{% endhighlight %}
 
 
 Some articles I found useful:
