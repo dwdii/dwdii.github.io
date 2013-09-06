@@ -15,9 +15,9 @@ There are many articles that cover the basic steps (listed below) of creating a 
 article from Microsoft TechNet is a good example.
 
 1. Create Partition Function
-2. Create Partition Scheme
-3. Create Schema
-4. Create Filegroup(s) within which the partitioned table will reside.
+2. Create Filegroup(s) within which the partitioned table will reside.
+3. Create Partition Scheme
+4. Create Schema
 5. Create Partitioned Table within the Schema from step 3 and on the partition scheme from step 2.
 
 I will quickly go through these steps in the following T-SQL inorder to set the stage for the area I want to focus on,
@@ -25,11 +25,36 @@ which is the actual data loading phase of partitioned tables.
 
 ### The Data Description ###
 
-Below is a simple partition function that starts off with a single boundary at zero. Given the `RANGE RIGHT`, this means 
-that all negative numbers are in the left-most partitionm, and zero starts the right most partition initially. 
+Below is a simple [CREATE PARTITION FUNCTION](http://technet.microsoft.com/en-us/library/ms187802.aspx) statement that starts off 
+with a single boundary at zero. Given the `RANGE RIGHT`, this means that all negative numbers are in the left-most partition, and 
+zero starts the right most partition initially. 
 
 {% highlight sql linenos %}
     CREATE PARTITION FUNCTION PF1_Right (bigint) AS RANGE RIGHT FOR VALUES (0);
+{% endhighlight %}
+
+You can this partition function using the '$PARTITION' database object as shown below, which will return `2` indicating
+that the key value of zero will be stored in the 2nd partition.
+
+{% highlight sql linenos %}
+	SELECT $PARTITION.PF1_Right(0);
+{% endhighlight %}
+
+Next, creating filegroups for the physical storage of the partitioned table. It is optional, but recommended. At least the initial filegroup
+must exist before the partition scheme can be defined. 
+
+{% highlight sql linenos %}
+	CREATE FILEGROUP...
+{% endhighlight %}
+
+Below, the [CREATE PARTITION SCHEME](http://technet.microsoft.com/en-us/library/ms179854.aspx) statement is used to create the 
+partitioning scheme which will be assigned to the table. The `ALL TO` syntax is used to specify that the FgSandbox2 filegroup
+will be used for all partitions of the partitioned table.
+
+{% highlight sql linenos %}
+	CREATE PARTITION SCHEME PS1_Right
+		AS PARTITION PF1_Right
+		ALL TO (FgSandbox2);
 {% endhighlight %}
 
 
