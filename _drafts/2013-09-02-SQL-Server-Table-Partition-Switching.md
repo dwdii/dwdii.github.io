@@ -40,11 +40,24 @@ that the key value of zero will be stored in the 2nd partition.
 	SELECT $PARTITION.PF1_Right(0);
 {% endhighlight %}
 
-Next, creating filegroups for the physical storage of the partitioned table. It is optional, but recommended. At least the initial filegroup
-must exist before the partition scheme can be defined. 
+Next, we'll create a filegroup for the physical storage of the partitioned table. It is optional, but recommended. At least the initial filegroup
+must exist before the partition scheme can be defined. Below are two simple ALTER DATABASE statements to add a filegroup named "FgSandbox2" to the Sandbox
+database (change the name from Sandbox to your database name), and then adding a physical file named Sandbox2.ndf to the filegroup (change the path as necessary). 
 
 {% highlight sql linenos %}
-	CREATE FILEGROUP...
+	ALTER DATABASE Sandbox 
+		ADD FILEGROUP FgSandbox2;
+
+	ALTER DATABASE Sandbox
+		ADD FILE 
+		(
+			Name = Sandbox2,
+			FILENAME = 'D:\Databases\MSSQL11.MSSQLSERVER\Data\Sandbox2.ndf',
+			SIZE = 50 MB,
+			MAXSIZE = UNLIMITED,
+			FILEGROWTH = 10 %
+		)
+		TO FILEGROUP FgSandbox2
 {% endhighlight %}
 
 Below, the [CREATE PARTITION SCHEME](http://technet.microsoft.com/en-us/library/ms179854.aspx) statement is used to create the 
