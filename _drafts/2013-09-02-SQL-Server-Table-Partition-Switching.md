@@ -40,9 +40,10 @@ that the key value of zero will be stored in the 2nd partition.
 	SELECT $PARTITION.PF1_Right(0);
 {% endhighlight %}
 
-Next, we'll create a filegroup for the physical storage of the partitioned table. It is optional, but recommended. At least the initial filegroup
-must exist before the partition scheme can be defined. Below are two simple ALTER DATABASE statements to add a filegroup named "FgSandbox2" to the Sandbox
-database (change the name from Sandbox to your database name), and then adding a physical file named Sandbox2.ndf to the filegroup (change the path as necessary). 
+Next, we'll create a filegroup for the physical storage of the partitioned table. It is optional (you could use the default PRIMARY filgroup), but recommended. 
+At least the initial filegroup must exist before the partition scheme can be defined. Below are two simple [ALTER DATABASE](http://technet.microsoft.com/en-US/library/bb522469.aspx) 
+statements to add a filegroup named "FgSandbox2" to the Sandbox database (change the name from Sandbox to your database name), and then adding a physical 
+file named Sandbox2.ndf to the filegroup (change the database name and path as necessary). 
 
 {% highlight sql linenos %}
 	ALTER DATABASE Sandbox 
@@ -68,6 +69,51 @@ will be used for all partitions of the partitioned table.
 	CREATE PARTITION SCHEME PS1_Right
 		AS PARTITION PF1_Right
 		ALL TO (FgSandbox2);
+{% endhighlight %}
+
+Although not specifically required for partitioning, it is a best practice to create and use a non-dbo schema for encapsulating tables.
+The [CREATE SCHEMA](http://technet.microsoft.com/en-us/library/ms189462.aspx) statement below creates a new schema named 'DWD' (my initials). 
+The partition scheme and function created earlier are not (can't be) assigned a schema, but  shortly we will be creating the the partitioned 
+table and it can and shout be assigned to our non-dbo schema.
+
+{% highlight sql linenos %}
+	CREATE SCHEMA [DWD];
+{% endhighlight %}
+
+Next, we'll create a series of tables. As mentioned earlier, my scenario involves a partitioned child table with a foreign key to a 
+non-partitined parent table. This obviously means creating 2 tables here, and because my goal is to show parition switching from
+a staging table, we'll create this table as well.
+
+First, the parent table... for simplicity it includes only the primary key identity column (ID), and a timestamp for informational purposes.
+
+{% highlight sql linenos %}
+	CREATE TABLE [DWD].[ParentTable]
+	(
+		ID BIGINT NOT NULL IDENTITY (1,1) CONSTRAINT PK_ParentTable_ID PRIMARY KEY CLUSTERED,
+		Timestamp DATETIME NOT NULL
+	);
+{% endhighlight %}
+
+Next is the actual partitioned table. As mentioned, this table has a foreign key to the parent table. In addition, we have a 
+primary key identity column, in keeping with our 'real world' scenario, and again information columns timestamp and description.
+
+Take note...
+
+{% highlight sql linenos %}
+	CREATE TABLE [DWD].[ChildPartitionedTable]
+	(
+		ID BIGINT NOT NULL IDENTITY(1,1),
+		ParentTable_ID BIGINT NOT NULL CONSTRAINT FK_ChildPartitionedTable_ParentTable_ID FOREIGN KEY REFERENCES [DWD].[ParentTable](ID),
+		Timestamp SMALLDATETIME NOT NULL,
+		Description NVARCHAR(100) NULL,
+
+		CONSTRAINT PK_ChildPartitionedTable_ID
+				   PRIMARY KEY CLUSTERED (ID, ParentTable_ID)
+				   WITH (IGNORE_DUP_KEY = OFF),
+
+		CONSTRAINT CheckRange_ChildPartitionedTable_ParentTable_ID CHECK (ParentTable_ID >= 0 AND 20 >= ParentTable_ID) 
+	)
+	ON PS1_Right ( ParentTable_ID );
 {% endhighlight %}
 
 
