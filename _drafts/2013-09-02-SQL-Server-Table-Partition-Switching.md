@@ -97,7 +97,8 @@ First, the parent table... for simplicity it includes only the primary key ident
 Next is the actual partitioned table. As mentioned, this table has a foreign key to the parent table. In addition, we have a 
 primary key identity column, in keeping with our 'real world' scenario, and again information columns timestamp and description.
 
-Take note...
+Take note of the `ON` clause at the end of the statement. It indicates that the table will be using the partition scheme PS1_Right,
+based ont he ParentTable_ID to determine partition into which a given row is stored.
 
 {% highlight sql linenos %}
 	CREATE TABLE [DWD].[ChildPartitionedTable]
