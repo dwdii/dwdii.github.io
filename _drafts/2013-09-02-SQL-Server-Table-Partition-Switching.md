@@ -98,7 +98,7 @@ Next is the actual partitioned table. As mentioned, this table has a foreign key
 primary key identity column, in keeping with our 'real world' scenario, and again information columns timestamp and description.
 
 Take note of the `ON` clause at the end of the statement. It indicates that the table will be using the partition scheme PS1_Right,
-based ont he ParentTable_ID to determine partition into which a given row is stored.
+based ont he ParentTable_ID to determine partition into which a given row is stored. 
 
 {% highlight sql linenos %}
 	CREATE TABLE [DWD].[ChildPartitionedTable]
@@ -116,6 +116,22 @@ based ont he ParentTable_ID to determine partition into which a given row is sto
 	)
 	ON PS1_Right ( ParentTable_ID );
 {% endhighlight %}
+
+Finally, we prepare a staging table which will be used to initially load the data into the database. Notice that the staging table is in the
+same filegroup as the partition scheme partition. When more than one filegroup is used by the partition scheme, either multiple staging tables
+must be used, or each load needs to create it's own staging table in the proper filegroup relevant to the given data load. 
+
+{% highlight sql linenos %}
+	CREATE TABLE [DWD].[ChildPartitionedTable_Stage]
+	(
+		ID BIGINT NOT NULL IDENTITY(1,1),
+		ParentTable_ID BIGINT NOT NULL CONSTRAINT FK_ChildPartitionedTable_Stage_ParentTable_ID FOREIGN KEY REFERENCES [DWD].[ParentTable](ID),
+		Timestamp SMALLDATETIME NOT NULL,
+		Description NVARCHAR(100) NULL
+	)
+	ON FgSandbox2; -- Important that the staging table is on the same FileGroup as the destination partition.
+{% endhighlight %}
+
 
 
 Some articles I found useful:
