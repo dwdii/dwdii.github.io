@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Partition Switching in SQL Server
-tags: SQL Server, Data Warehouse
+title: Table Partitioning in SQL Server
+tags: SQL Server, Data Warehouse, Partitioning
 ---
 {{ page.title }}
 ----------------
@@ -132,12 +132,12 @@ must be used, or each load needs to create it's own staging table in the proper 
 	ON FgSandbox2; -- Important that the staging table is on the same FileGroup as the destination partition.
 {% endhighlight %}
 
-
+... Coming soon - Part 2 : Data Movement with Partition Switching ...
 
 Some articles I found useful:
 * [Partitioned Tables and Indexes] (http://technet.microsoft.com/en-us/library/ms190787.aspx)
 * [Transferring Data Efficiently by Using Partition Switching](http://technet.microsoft.com/en-us/library/ms191160%28v=sql.105%29.aspx)
 
-Hope this helps you!
+Best,
 
 [Daniel (@dwdii)](http://twitter.com/dwdii)
