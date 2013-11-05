@@ -22,13 +22,13 @@ To begin with, given the parent table in our scenario, we start with a simple in
 only an identity column and the timestamp, but could easily contain any additional columns you might need.
 
 {% highlight sql linenos %}
-	DECLARE @ParentID BIGINT
+DECLARE @ParentID BIGINT
 
-	-- ParentTable insert
-	INSERT INTO [DWD].[ParentTable] ([Timestamp]) VALUES (GETUTCDATE());
+-- ParentTable insert
+INSERT INTO [DWD].[ParentTable] ([Timestamp]) VALUES (GETUTCDATE());
 
-	-- Get the parent key for use during the data loading.
-	SET @ParentID = SCOPE_IDENTITY();
+-- Get the parent key for use during the data loading.
+SET @ParentID = SCOPE_IDENTITY();
 {% endhighlight %}
 
 Next, we have to deal with the child identity challenge. Rather than use `DBCC CHECKIDENT` I've chosen to use the 
@@ -36,99 +36,96 @@ Next, we have to deal with the child identity challenge. Rather than use `DBCC C
 movement must run serially, pipeline-style, and cannot have multiple instances executing this same SQL concurrently.
 
 {% highlight sql linenos %}
-	DECLARE @DestPartition INT
-	DECLARE @IdentCurrent BIGINT
-	DECLARE @StageIdentCurrent BIGINT
-	DECLARE @NewIdentStage BIGINT
+DECLARE @DestPartition INT
+DECLARE @IdentCurrent BIGINT
+DECLARE @StageIdentCurrent BIGINT
+DECLARE @NewIdentStage BIGINT
 
-	SET @DestPartition = (SELECT $PARTITION.PF1_Right(@ParentID));
-	SET @IdentCurrent = (IDENT_CURRENT('[DWD].[ChildPartitionedTable]'));
-	SET @NewIdentStage = @IdentCurrent + 1
+SET @DestPartition = (SELECT $PARTITION.PF1_Right(@ParentID));
+SET @IdentCurrent = (IDENT_CURRENT('[DWD].[ChildPartitionedTable]'));
+SET @NewIdentStage = @IdentCurrent + 1
 
-	-- Reseed the staging table so we keep the IDENTITY up to date.
-	DBCC CHECKIDENT ('[DWD].[ChildPartitionedTable_Stage]', RESEED, @NewIdentStage) WITH NO_INFOMSGSs
+-- Reseed the staging table so we keep the IDENTITY up to date.
+DBCC CHECKIDENT ('[DWD].[ChildPartitionedTable_Stage]', RESEED, @NewIdentStage) WITH NO_INFOMSGS
 {% endhighlight %}
 
 1. First, we call the partitioning function (line 6) to determine the destination partition for the given partitioning key.
 2. Call IDENT_CURRENT on the partitioned child table to get the last allocated IDENTITY value.
 3. Increment the IDENTITY value.
-4. Finally, re-seed the staging table to match the partitioned child tables next IDENTITY value.
+4. Finally, re-seed the staging table to match the partitioned child table's next IDENTITY value.
 
-If you are playing along, you can run the following statements to verify where things stand. In development, I use these statement to
-make sure things are proceeding as expected in my stored proc.
+If you are playing along on your side, you can run the following statements to verify where things stand. In development, I use these statements 
+to make sure things are proceeding as expected in my stored proc.
 
 {% highlight sql linenos %}
-	SET @StageIdentCurrent = (IDENT_CURRENT('[DWD].[ChildPartitionedTable_Stage]'));
-	SELECT [ParentID] = @ParentID, [DestPartition] = @DestPartition, [IDENT_CURRENT] = @IdentCurrent, [Stage_IDENT_CURRENT] = @StageIdentCurrent;
+SET @StageIdentCurrent = (IDENT_CURRENT('[DWD].[ChildPartitionedTable_Stage]'));
+SELECT [ParentID] = @ParentID, [DestPartition] = @DestPartition, [IDENT_CURRENT] = @IdentCurrent, [Stage_IDENT_CURRENT] = @StageIdentCurrent;
 {% endhighlight %}
 
-Next, we prep the staging table by dropping old constraints so we can add revised constaints after data load. These constraints are logistical best practices
+Next, we prep the staging table by dropping old constraints so we can add revised constraints after data load. These constraints are logistical best practices
 to ensure, with the help of SQL Server, our staging data is in bounds for the partition switch coming up soon.
 
 {% highlight sql linenos %}
-	-- Stage Table: Drop the CHECK constraint and PK on staging table
-	IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[DWD].PK_ChildPartitionedTable_Stage_ID') AND type in (N'PK'))
-	BEGIN
-		ALTER TABLE [DWD].[ChildPartitionedTable_Stage] DROP CONSTRAINT PK_ChildPartitionedTable_Stage_ID  
-	END
+-- Stage Table: Drop the CHECK constraint and PK on staging table
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[DWD].PK_ChildPartitionedTable_Stage_ID') AND type in (N'PK'))
+BEGIN
+	ALTER TABLE [DWD].[ChildPartitionedTable_Stage] DROP CONSTRAINT PK_ChildPartitionedTable_Stage_ID  
+END
 
-	IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[DWD].CheckRange_ChildPartitionedTable_Stage_ParentTable_ID') AND type in (N'C'))
-	BEGIN
-		ALTER TABLE [DWD].[ChildPartitionedTable_Stage] DROP CONSTRAINT CheckRange_ChildPartitionedTable_Stage_ParentTable_ID  
-	END
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[DWD].CheckRange_ChildPartitionedTable_Stage_ParentTable_ID') AND type in (N'C'))
+BEGIN
+	ALTER TABLE [DWD].[ChildPartitionedTable_Stage] DROP CONSTRAINT CheckRange_ChildPartitionedTable_Stage_ParentTable_ID  
+END
 {% endhighlight %}
 
 Here is the data load. For demonstration purposes, I'm seleting data from the [AdventureWorks2012 database](http://msftdbprodsamples.codeplex.com/releases/view/55330), 
 but in practice I would likely use a bulk insert via the .NET Framework's SQLBulkCopy class, SSIS, or some other bulk insert option.
 
 {% highlight sql linenos %}
-	-- Bulk load into staging table 
-	INSERT INTO [DWD].[ChildPartitionedTable_Stage] (ParentTable_ID,Timestamp,Description) 
-		SELECT @ParentID, GETUTCDATE(), CarrierTrackingNumber FROM AdventureWorks2012.Sales.SalesOrderDetail;
+-- Bulk load into staging table 
+INSERT INTO [DWD].[ChildPartitionedTable_Stage] (ParentTable_ID,Timestamp,Description) 
+	SELECT @ParentID, GETUTCDATE(), CarrierTrackingNumber FROM AdventureWorks2012.Sales.SalesOrderDetail;
 {% endhighlight %}
 
 Next, we add our primary key onto the staging table to facilitate lookups and constraint checking
 
 {% highlight sql linenos %}
-		ALTER TABLE [DWD].[ChildPartitionedTable_Stage] ADD 
-			CONSTRAINT PK_ChildPartitionedTable_Stage_ID
-					   PRIMARY KEY CLUSTERED (ID, ParentTable_ID)
-					   WITH (IGNORE_DUP_KEY = OFF)
-
-
+ALTER TABLE [DWD].[ChildPartitionedTable_Stage] ADD 
+	CONSTRAINT PK_ChildPartitionedTable_Stage_ID
+				PRIMARY KEY CLUSTERED (ID, ParentTable_ID)
+				WITH (IGNORE_DUP_KEY = OFF)
 {% endhighlight %}
 
-A partition switching best practice is to add a check constraint on the staging table to ensure only new partition values are present. Additionally,
+As mentioned earlier, a partition switching best practice is to add a check constraint on the staging table to ensure only new partition values are present. Additionally,
 we update the check constraint on the destination table to verify we are in partition range and no existing rows would fall in the 
-new parition range. Our '6' comes from the new Parent_ID allocated during the ParentTable insert. ParentTable_ID is the key for our partitioning function.
-The range 0 - 6 is hardcoded due to ALTER TABLE requiring constants, so this would be an sp_executesql call or implemented in application code executed via 
-the .NET SqlCommand class.
+new parition range. Our '6' comes from the new Parent_ID allocated during the ParentTable insert (`@ParentID` from line 7 of the first code block, above). 
+ParentTable_ID is the key for our partitioning function. The range 0 - 6 is hardcoded due to `ALTER TABLE` requiring constants, so this would be an sp_executesql 
+call or implemented in application code executed via the .NET SqlCommand class.
 
 {% highlight sql linenos %}
+-- Best practice to add the check constraint on the staging table after the primary index
+IF  NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[DWD].CheckRange_ChildPartitionedTable_Stage_ParentTable_ID') AND type in (N'C'))
+BEGIN
+	ALTER TABLE [DWD].[ChildPartitionedTable_Stage] ADD CONSTRAINT CheckRange_ChildPartitionedTable_Stage_ParentTable_ID CHECK (6 = ParentTable_ID)
+END
 
-	-- Best practice to add the check constraint on the staging table after the primary index
-	IF  NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[DWD].CheckRange_ChildPartitionedTable_Stage_ParentTable_ID') AND type in (N'C'))
-	BEGIN
-		ALTER TABLE [DWD].[ChildPartitionedTable_Stage] ADD CONSTRAINT CheckRange_ChildPartitionedTable_Stage_ParentTable_ID CHECK (6 = ParentTable_ID)
-	END
-
-	ALTER TABLE [DWD].[ChildPartitionedTable] DROP CONSTRAINT CheckRange_ChildPartitionedTable_ParentTable_ID  
-	ALTER TABLE [DWD].[ChildPartitionedTable] ADD CONSTRAINT CheckRange_ChildPartitionedTable_ParentTable_ID CHECK (ParentTable_ID >= 0 AND 6 > ParentTable_ID) 
+ALTER TABLE [DWD].[ChildPartitionedTable] DROP CONSTRAINT CheckRange_ChildPartitionedTable_ParentTable_ID  
+ALTER TABLE [DWD].[ChildPartitionedTable] ADD CONSTRAINT CheckRange_ChildPartitionedTable_ParentTable_ID CHECK (ParentTable_ID >= 0 AND 6 > ParentTable_ID) 
 {% endhighlight %}
 
 Again, the '6' comes in when the partition function is altered to split the boundary at 6 to effectively create the new partition.
 
 {% highlight sql linenos %}
-	ALTER PARTITION SCHEME PS1_Right NEXT USED FgSandbox2;
-	ALTER PARTITION FUNCTION PF1_Right () SPLIT RANGE (6);
+ALTER PARTITION SCHEME PS1_Right NEXT USED FgSandbox2;
+ALTER PARTITION FUNCTION PF1_Right () SPLIT RANGE (6);
 {% endhighlight %}
 
-Finally, the actual ALTER TABLE statement which performs the switch from the staging table to the paritioned destination table.
+Finally, the actual `ALTER TABLE ... SWITCH TO` statement which performs the data movement from the staging table to the paritioned destination table.
 
 {% highlight sql linenos %}
-	-- Do the meta-data switch op 
-	ALTER TABLE [DWD].[ChildPartitionedTable_Stage]
-		SWITCH TO [DWD].[ChildPartitionedTable] PARTITION $PARTITION.PF1_Right(6) 
+-- Do the meta-data switch op 
+ALTER TABLE [DWD].[ChildPartitionedTable_Stage]
+	SWITCH TO [DWD].[ChildPartitionedTable] PARTITION $PARTITION.PF1_Right(6) 
 {% endhighlight %}
 
 I realize I moved fairly quickly through this article, but I hope it will help show (in a slightly more concrete way) how partition switching can be used 
