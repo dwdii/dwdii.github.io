@@ -78,8 +78,8 @@ BEGIN
 END
 {% endhighlight %}
 
-Here is the data load. For demonstration purposes, I'm seleting data from the [AdventureWorks2012 database](http://msftdbprodsamples.codeplex.com/releases/view/55330), 
-but in practice I would likely use a bulk insert via the .NET Framework's SQLBulkCopy class, SSIS, or some other bulk insert option.
+Here is the data load. For demonstration purposes, I'm selecting data from the [AdventureWorks2012 database](http://msftdbprodsamples.codeplex.com/releases/view/55330), 
+but in practice I would use a bulk insert via the .NET Framework's SQLBulkCopy class, SSIS, or some other bulk insert option.
 
 {% highlight sql linenos %}
 -- Bulk load into staging table 
