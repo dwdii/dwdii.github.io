@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Book Review: R for Everyone
+title: Book Review - R for Everyone
 tags: R, Data Analytics
 ---
 {{ page.title }}
@@ -18,7 +18,7 @@ a Microsoft Visual Studio background, I greatly appreciate some of the features 
 Some articles and links I found useful:
 * [The R Project](http://www.r-project.org)
 * [RStudio](http://www.rstudio.com/)
-* [Matrix Algebra with R] (http://www.statmethods.net/advstats/matrix.html)
+* [Matrix Algebra with R](http://www.statmethods.net/advstats/matrix.html)
 
 Best,
 
