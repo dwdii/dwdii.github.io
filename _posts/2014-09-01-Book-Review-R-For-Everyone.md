@@ -16,9 +16,9 @@ I particularlly like the use of [RStudio](http://www.rstudio.com/) as the IDE. A
 a Microsoft Visual Studio background, I greatly appreciate some of the features including the project stucture, version control integration with Git and the breakpoint debugging functionality.
 
 Some articles and links I found useful:
- *[The R Project](http://www.r-project.org)
- *[RStudio](http://www.rstudio.com/)
- *[Matrix Algebra with R](http://www.statmethods.net/advstats/matrix.html)
+*  [The R Project](http://www.r-project.org)
+*  [RStudio](http://www.rstudio.com/)
+*  [Matrix Algebra with R](http://www.statmethods.net/advstats/matrix.html)
 
 Best,
 
