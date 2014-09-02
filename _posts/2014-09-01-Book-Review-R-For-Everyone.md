@@ -17,9 +17,9 @@ a Microsoft Visual Studio background, I greatly appreciate some of the features 
 
 Some articles and links I found useful:
 <ul>
-<li>[The R Project](http://www.r-project.org)</li>
-<li>[RStudio](http://www.rstudio.com/)</li>
-<li>[Matrix Algebra with R](http://www.statmethods.net/advstats/matrix.html)</li>
+<li><a href="http://www.r-project.org">The R Project</a></li>
+<li><a href="http://www.rstudio.com/">RStudio</a></li>
+<li><a href="http://www.statmethods.net/advstats/matrix.html">Matrix Algebra with R</a></li>
 </ul>
 
 Best,
