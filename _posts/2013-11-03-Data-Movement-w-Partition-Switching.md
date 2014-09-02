@@ -133,6 +133,7 @@ to load large volumes of data efficiently.
 
 Some articles I found useful:
 * [Partitioned Tables and Indexes] (http://technet.microsoft.com/en-us/library/ms190787.aspx)
+
 * [Transferring Data Efficiently by Using Partition Switching](http://technet.microsoft.com/en-us/library/ms191160%28v=sql.105%29.aspx)
 
 Best,
