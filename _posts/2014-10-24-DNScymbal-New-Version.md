@@ -17,7 +17,7 @@ Tonight I dove in to see what was needed inorder to support the v1 API. As it tu
 Adam's [DNSimple.API](https://github.com/anderly/dnsimple-csharp), which is a .NET API for the [DNSimple REST API](http://developer.dnsimple.com/). A couple of hours later, I had finished the updates and some light testing and was ready to post the
 updated installer package on my website. 
 
-Here are some links to download the installer package, or to GitHub where you can fork the repo and get creative:
+Here are some links to the installer package for download, documentation and to GitHub where you can fork the repo and get creative on your own:
 
 * [Download the latest version of DNScymbal (1.1.5410) - Released Oct 24, 2014](http://www.dittenhafer.net/downloads/DNScymbal/DNScymbalSetup-1.1.5410.msi)
 * [Highlevel Documenation](https://github.com/dwdii/DNScymbal/blob/master/README.md)
