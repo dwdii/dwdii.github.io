@@ -135,6 +135,7 @@ must be used, or each load needs to create it's own staging table in the proper 
 ... Coming soon - Part 2 : Data Movement with Partition Switching ...
 
 Some articles I found useful:
+
 * [Partitioned Tables and Indexes] (http://technet.microsoft.com/en-us/library/ms190787.aspx)
 * [Transferring Data Efficiently by Using Partition Switching](http://technet.microsoft.com/en-us/library/ms191160%28v=sql.105%29.aspx)
 
