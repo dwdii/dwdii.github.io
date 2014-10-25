@@ -13,8 +13,8 @@ I received a tweet about a month ago from [@DNSimple](https://twitter.com/dnsimp
 
 "Well", I thought, "that means I need to revisit DNScymbal, my app for dynamically maintaining an IP / DNS mapping in the DNSimple DNS system.". 
 
-Tonight I dove in to see what was needed inorder to support the v1 API. As it turns out, the process was fairly straight forward for DNScymbal mostly thanks to [Adam Anderly](https://twitter.com/anderly). DNScymbal uses
-Adam's [DNSimple.API](https://github.com/anderly/dnsimple-csharp), which is a .NET API for the DNSimple REST API. A couple of hours later, I had finished the updates and some light testing and was ready to post the
+Tonight I dove in to see what was needed inorder to support the v1 API. As it turns out, the process was fairly straight forward for my app, DNScymbal, mostly thanks to [Adam Anderly](https://twitter.com/anderly). DNScymbal uses
+Adam's [DNSimple.API](https://github.com/anderly/dnsimple-csharp), which is a .NET API for the [DNSimple REST API](http://developer.dnsimple.com/). A couple of hours later, I had finished the updates and some light testing and was ready to post the
 updated installer package on my website. 
 
 Here are some links to download the installer package, or to GitHub where you can fork the repo and get creative:
