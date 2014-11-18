@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Julia Studio ERROR: type UnitRange has no field len
+title: Julia Studio ERROR type UnitRange has no field len
 tags: Julia,Error,Workaround
 ---
 {{ page.title }}
