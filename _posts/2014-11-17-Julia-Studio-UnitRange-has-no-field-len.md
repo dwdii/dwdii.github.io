@@ -5,8 +5,9 @@ tags: Julia,Error,Workaround
 ---
 {{ page.title }}
 ----------------
-FYI - you might get flacky behaviour from Julia Studio. I did. I'm on Windows 8.1 and every time I tried to run a jl script it either would do nothing, 
-or I would get the error in the subject of this thread (and maybe the script would run). The Julia Studio Console didn't seem to work either. It looks 
+Are you getting flacky behavior from Julia Studio? I did. I'm on Windows 8.1 and every time I tried to run a jl script it either would do nothing, 
+or I would get the error in the subject of this thread (and maybe the script would run). If I reset the console via the Tools &gt; Julia &gt; Reset Console menu item
+I could usually get another execution out of the debugger. The Julia Studio Console didn't seem to work with REPL commands either. It looks 
 like there is a bug in the ConsoleLogic.jl script that comes with Julia Studio 0.4.5. I seem to have fixed my issue by editing the ConsoleLogic.jl 
 script on line 210 to change range.len to be range.length. Apparently the correct property is length (not len).
 
