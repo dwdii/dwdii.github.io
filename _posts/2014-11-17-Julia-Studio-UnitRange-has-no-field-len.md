@@ -10,7 +10,7 @@ or I would get the error in the title of this post (and maybe the script would r
 I could usually get another execution out of the debugger. The Julia Studio Console didn't seem to work with REPL commands either. 
 
 It looks like there is a bug in the ConsoleLogic.jl script that comes with Julia Studio 0.4.5. I seem to have fixed my issue by editing the ConsoleLogic.jl 
-script on line 210 to change range.len to be ~~range.length~~ length(range). Apparently the correct ~~property is length~~ approach is a method call (not len property).
+script on line 210 to change range.len to be <strike>range.length</strike> length(range). Apparently the correct <strike>property is length</strike> approach is a method call (not len property).
 
 See the following link under the General Collections header for the documenation: [http://julia.readthedocs.org/en/latest/stdlib/base/](http://julia.readthedocs.org/en/latest/stdlib/base/)
 
