@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Data Set Profile: Bike Sharing Demand
+title: Data Set Profile Bike Sharing Demand
 tags: Kaggle,Analytics
 ---
 {{ page.title }}
