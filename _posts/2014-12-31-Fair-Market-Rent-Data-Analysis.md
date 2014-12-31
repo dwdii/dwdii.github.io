@@ -15,7 +15,7 @@ I decided to [share the project and source code via the MIT License on GitHub](h
 that others might find it useful whether through code examples, using the app as is, or enhancing it for further analysis of the FMR data.
 
 The following map shows rents across the United States for 2015 per the HUD FMR data. You can see Key West hanging 
-out at the tip of Florida (orange dot), and the San Fransisco area mid-way up California (also in with orangeish dots).
+out at the tip of Florida (orange dot), and the San Fransisco area mid-way up California (also with orangeish dots).
 
 ![United States Fair Market Rent 2015](https://raw.githubusercontent.com/dwdii/HudFmrDataAnalyzer/master/Docs/img/Heatmap-US-fmr-3bd-2015.png)
 
@@ -26,8 +26,8 @@ The following chart shows how rents have changed over time for Union County, NJ 
 ### 2016 and Beyond
 As it turns out, HUD has modified their data format for the FMR data almost every year since 2005. As a result, HudFmrDataAnalyzer has some hardcoded
 mappings between columns and the data expected for the analysis functions. Depending on how the data format looks for 2016 and beyond, a new mapping
-dictionary might need to be created, or alternatively an existing mapping dictionary can be specified. The code below shows new mapping dictionaries
-for years 2005 and 2006.
+dictionary might need to be created, or alternatively an existing mapping dictionary can be specified. To illustrate, the code below shows mapping dictionaries
+for years 2005 and 2006. 
 
 {% highlight python linenos %}
 def prepColumnMappings(self): 
