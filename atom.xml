@@ -11,7 +11,7 @@ layout: nil
  <id>http://dwdii.github.io/</id>
  <author>
    <name>Daniel Dittenhafer</name>
-   <email>dwdii@dwdii.github.io</email>
+   <email>atom@dittenhafer.net</email>
  </author>
 
  {% for post in site.posts %}
@@ -20,7 +20,7 @@ layout: nil
    <link href="http://dwdii.github.io{{ post.url }}"/>
    <updated>{{ post.date | date_to_xmlschema }}</updated>
    <id>http://dwdii.github.io{{ post.id }}</id>
-   <content type="html">{{ post.content | xml_escape }}</content>
+   <content type="html">{{ post.excerpt  | xml_escape }}</content>
  </entry>
  {% endfor %}
 
