@@ -13,12 +13,13 @@ The time frame of the data sets was between 2007 and 2012, which includes the so
 data set to see what kind of relationship, if any, would be revealed between birth rate and the state of the economy (using unemployment rate as a proxy).
 
 During the process of analyzing the natality data, I created the following geographic heatmap to help me understand the relative changes in birth rate
-around the United States during the time frame. 
+around the United States during the time frame. It presents the birth rate per 1000 people by county throughout the continental United States. 
 
 ![Geographic Heatmap Animation of US Births](https://raw.githubusercontent.com/dwdii/DataAcqMgmt/master/FinalProject/USBirthsGeographicAnimation.gif)
 
-I used R and various R modules including ggplot and ggmap to analyze the data and document my findings.  The complete R Markdown code along with 
-the is available on GitHub if you would like to dig in. Links to the final paper as well as my GitHub repository are listed in the Links section below.
+I used R and various R modules including ggplot and ggmap to analyze the data and document my findings.  The complete R Markdown code is available on GitHub
+if you would like to dig in and see the analysis in detail or attempt to reproduce my results. Links to the final paper as well as my GitHub repository 
+are listed in the Links section below.
 
 Links:
 
