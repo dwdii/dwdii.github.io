@@ -12,8 +12,10 @@ feasible to fly up to NYC for 1 day, so why bother going through the application
 
 Earlier in 2015, [I blogged about my project](http://dwdii.github.io/2015/01/27/US-Births-And-Unemployment-2007-2012.html) and tweeted the post. Shortly there after, [Kirk Borne](https://twitter.com/kirkdborne/), Principal Data Scientist at Booz Allen Hamilton, noticed my project and tweeted it out his followers.
 
+<center>
 <blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr">Analyzing US Births &amp; Unemployment 2007-2012 in R: <a href="http://t.co/YV1p9ODKb1">http://t.co/YV1p9ODKb1</a> <a href="https://twitter.com/hashtag/Rstats?src=hash">#Rstats</a> <a href="https://twitter.com/hashtag/DataViz?src=hash">#DataViz</a> <a href="https://twitter.com/hashtag/DataScience?src=hash">#DataScience</a> by <a href="https://twitter.com/dwdii">@dwdii</a> <a href="http://t.co/yJVFkdRmBn">pic.twitter.com/yJVFkdRmBn</a></p>&mdash; Kirk Borne (@KirkDBorne) <a href="https://twitter.com/KirkDBorne/status/567385158484250624">February 16, 2015</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</center>
 
 Some how, my project ended up shared on the [Google+ Statistics and R group](https://plus.google.com/communities/117681470673972651781/s/dwdii?cfem=1).
 Apparently, Andrew Catlin, the interim Program Director at the time for the CUNY Master of Science Data Analytics program, 
@@ -29,8 +31,9 @@ that the structure of the event was exhibition-style and each presenter would ha
 to show a slide deck in conjunction with my talk, I requested to be located near a power outlet. There were also limited audio/visual
 equipment available which some people used to help them during their presentations. 
 
-<center>![137 St - City College Station](..\img\NYC-137StCityCollege.JPG)
-![CCNY Gate](..\img\NYC-CcnyGate.JPG)</center>
+<center>
+  <img alt="137 St - City College Station" src="..\img\NYC-137StCityCollege.JPG" /><img alt="CCNY Gate" src="..\img\NYC-CcnyGate.JPG" />
+</center>
 
 My hotel was near Times Square, so I took the subway up to the City College of New York campus. 
 The [campus has a long history](http://www.nycago.org/Organs/NYC/html/CityCollegeNY.html), and 
