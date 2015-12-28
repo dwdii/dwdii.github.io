@@ -32,7 +32,7 @@ to show a slide deck in conjunction with my talk, I requested to be located near
 equipment available which some people used to help them during their presentations. 
 
 <center>
-  <img alt="137 St - City College Station" src="\img\NYC-137StCityCollege.JPG" /><img alt="CCNY Gate" src="\img\NYC-CcnyGate.JPG" />
+  <img alt="137 St - City College Station" src="\img\NYC-137StCityCollege.JPG" style="margin-right:7px"/><img alt="CCNY Gate" src="\img\NYC-CcnyGate.JPG" />
 </center>
 
 My hotel was near Times Square, so I took the subway up to the City College of New York campus. 
@@ -46,18 +46,17 @@ gathered for a short invocation and keynote speech at the front of the Great Hal
 the judges and presenting our projects. I met some great people including CUNY professors, students and outside professionals, and
 had a wonderful time talking to them about both my project and their work. 
 
-<center>![137 St - City College Station](..\img\NYC-CcnyGreatHall.JPG)</center>
+<center>![137 St - City College Station](\img\NYC-CcnyGreatHall.JPG)</center>
 
 After an hour or so, the last call was made for judges to hear final projects and begin deliberations to award prizes. In the end,
 I was surprised and honored to receive the first place in the math/science division! You can find a link to the CUNY press release
 related to my award in the links section below.
 
-<center>![137 St - City College Station](..\img\NYC-CcnyMyTable.JPG)</center>
+<center>![137 St - City College Station](\img\NYC-CcnyMyTable.JPG)</center>
 
 Links:
 
 * [CUNY SPS MS IN DATA ANALYTICS STUDENT WINS AT CCNY'S GRADUATE STUDENT RESEARCH SYMPOSIUM](http://www1.cuny.edu/mu/forum/2015/05/20/cuny-sps-ms-in-data-analytics-student-wins-at-ccnys-graduate-student-research-symposium/)
-The final paper: [U.S. Births and Unemployment Rate 2007-2012](http://bit.ly/1Df6qxg)
 * [On GitHub in my DataAcqMgmt repo](https://github.com/dwdii/DataAcqMgmt/tree/master/FinalProject)
 
 Best,
