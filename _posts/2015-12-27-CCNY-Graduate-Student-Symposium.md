@@ -46,13 +46,13 @@ gathered for a short invocation and keynote speech at the front of the Great Hal
 the judges and presenting our projects. I met some great people including CUNY professors, students and outside professionals, and
 had a wonderful time talking to them about both my project and their work. 
 
-<center>![137 St - City College Station](\img\NYC-CcnyGreatHall.JPG)</center>
+<center><img alt="137 St - City College Station" src="\img\NYC-CcnyGreatHall.JPG" /></center>
 
 After an hour or so, the last call was made for judges to hear final projects and begin deliberations to award prizes. In the end,
 I was surprised and honored to receive the first place in the math/science division! You can find a link to the CUNY press release
 related to my award in the links section below.
 
-<center>![137 St - City College Station](\img\NYC-CcnyMyTable.JPG)</center>
+<center><img alt="137 St - City College Station" src="\img\NYC-CcnyMyTable.JPG" /></center>
 
 Links:
 
