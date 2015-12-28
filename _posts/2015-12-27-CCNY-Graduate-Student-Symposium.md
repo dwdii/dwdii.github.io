@@ -50,8 +50,18 @@ had a wonderful time talking to them about both my project and their work.
 <center><img alt="137 St - City College Station" src="\img\NYC-CcnyGreatHall.JPG" /></center>
 
 After an hour or so, the last call was made for judges to hear final projects and begin deliberations to award prizes. In the end,
-I was surprised and honored to receive the first place in the math/science division! You can find a link to the CUNY press release
-related to my award in the links section below.
+I was surprised and honored to receive the first place in the math/science division! CUNY issued a [press release](http://www1.cuny.edu/mu/forum/2015/05/20/cuny-sps-ms-in-data-analytics-student-wins-at-ccnys-graduate-student-research-symposium/)
+related to my award also.
+
+<blockquote class="twitter-tweet" lang="en"><p lang="en" dir="ltr">Congrats to Daniel Dittenhafer for winning 1st prize in the Math &amp; Science Division <a href="https://twitter.com/CityCollegeNY">@CityCollegeNY</a>&#39;s 8th Annual Graduate Student Symposium.</p>&mdash; CUNY SPS (@CUNYSPS) <a href="https://twitter.com/CUNYSPS/status/595678229278633984">May 5, 2015</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+For any CUNY graduate student considering whether to apply to the CCNY Graduate Student Symposium in the future, 
+I highly recommend it. The application process was simple. If you have a project or thesis already in motion, 
+you likely already have all you need to fill out the application. Obviously, travel can be an issue. Students 
+local to New York City have an advantage in terms of expenses, but I traveled very light and did not feel I lacked
+anything during my presentations. The experience of meeting and talking with so many well respected people and
+presenting your work is invaluable. Apply, you wont regret it.
 
 <center><img alt="137 St - City College Station" src="\img\NYC-CcnyMyTable.JPG" /></center>
 
