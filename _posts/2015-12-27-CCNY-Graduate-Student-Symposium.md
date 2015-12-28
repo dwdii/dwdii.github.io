@@ -32,7 +32,7 @@ to show a slide deck in conjunction with my talk, I requested to be located near
 equipment available which some people used to help them during their presentations. 
 
 <center>
-  <img alt="137 St - City College Station" src="..\img\NYC-137StCityCollege.JPG" /><img alt="CCNY Gate" src="..\img\NYC-CcnyGate.JPG" />
+  <img alt="137 St - City College Station" src="\img\NYC-137StCityCollege.JPG" /><img alt="CCNY Gate" src="\img\NYC-CcnyGate.JPG" />
 </center>
 
 My hotel was near Times Square, so I took the subway up to the City College of New York campus. 
