@@ -1,7 +1,8 @@
 ---
 layout: post
 title: CCNY Graduate Student Symposium 2015
-tags: CUNY,CCNY,Presentation
+tags: CUNY,CCNY,Presentation,NYC
+keywords: CCNY,Graduate,Student,Symposium,2015
 ---
 {{ page.title }}
 ----------------
