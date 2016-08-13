@@ -76,7 +76,7 @@ The Garuda.Data project is part of a solution, GarudaUtil, which includes a grap
 Apache Phoenix using the Garuda.Data library. 
 
 <center>
-![Garuda Query UI](/img/GarudaQueryScreenshot.png)
+<img src="/img/GarudaQueryScreenshot.png" alt="Garuda Query Screenshot" />
 </center>
 
 [The GarudaUtil solution including Garuda.Data and Garuda Query, is available on GitHub.](https://github.com/dwdii/GarudaUtil). I welcome
