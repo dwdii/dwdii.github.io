@@ -75,7 +75,9 @@ using the [Phoenix Transactions](https://phoenix.apache.org/transactions.html) f
 The Garuda.Data project is part of a solution, GarudaUtil, which includes a graphical user interface for connecting to and querying
 Apache Phoenix using the Garuda.Data library. 
 
+<center>
 ![Garuda Query UI](/img/GarudaQueryScreenshot.png)
+</center>
 
 [The GarudaUtil solution including Garuda.Data and Garuda Query, is available on GitHub.](https://github.com/dwdii/GarudaUtil). I welcome
 feedback! Please use the [GarudaUtil Issues](https://github.com/dwdii/GarudaUtil/issues) section to report any bugs or enhancements.
