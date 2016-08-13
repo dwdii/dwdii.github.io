@@ -78,14 +78,15 @@ Apache Phoenix using the Garuda.Data library.
 <center>
 <img src="/img/GarudaQueryScreenshot.png" alt="Garuda Query Screenshot" />
 </center>
+<br />
 
 [The GarudaUtil solution including Garuda.Data and Garuda Query, is available on GitHub.](https://github.com/dwdii/GarudaUtil). I welcome
 feedback! Please use the [GarudaUtil Issues](https://github.com/dwdii/GarudaUtil/issues) section to report any bugs or enhancements.
 
 Links:
 
-* https://www.nuget.org/packages/Garuda.Data/
-* https://github.com/dwdii/GarudaUtil
+* [Garuda.Data Nuget Package](https://www.nuget.org/packages/Garuda.Data/)
+* [GarudaUtil GitHub Repo](https://github.com/dwdii/GarudaUtil)
 
 Best,
 
