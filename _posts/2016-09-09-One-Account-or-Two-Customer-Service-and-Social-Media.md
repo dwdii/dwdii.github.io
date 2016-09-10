@@ -16,7 +16,7 @@ I'm curious if they use any text analytics for either detecting issues to assist
 for measuring their customer service performance (sentiment). It certainly seems like a good fit.
 
 I found a SimplyMeasured article that talks about customer service via twitter and happens to 
-use Delta as an example: http://simplymeasured.com/blog/4-ways-to-improve-customer-service-measurement-on-twitter/#sm.00001ys7ytavfudh9pdctu0jcv6gr
+use Delta as an example: [http://simplymeasured.com/blog/4-ways-to-improve-customer-service-measurement-on-twitter/#sm.00001ys7ytavfudh9pdctu0jcv6gr](http://simplymeasured.com/blog/4-ways-to-improve-customer-service-measurement-on-twitter/#sm.00001ys7ytavfudh9pdctu0jcv6gr)
 
 Interestingly, the above mentioned article seems to endorse the use of a separate twitter 
 account for customer service specific interactions. They also discuss % of mentions with replies,
@@ -24,11 +24,11 @@ account for customer service specific interactions. They also discuss % of menti
 
 Here is the original presentation from SimpliFlying:
 
-http://www.slideshare.net/shanxz/top-50-casestudies-of-airlines-and-airports-excelling-in-social-media-11773823
+[http://www.slideshare.net/shanxz/top-50-casestudies-of-airlines-and-airports-excelling-in-social-media-11773823](http://www.slideshare.net/shanxz/top-50-casestudies-of-airlines-and-airports-excelling-in-social-media-11773823)
 
 While researching this example, I found this article guiding readers on how to use DeltaAssist to help with flight issues:
 
-http://renespoints.boardingarea.com/2012/10/11/a-beginners-guide-to-use-deltaassist-with-twitter-a-simple-how-to-guide/
+[http://renespoints.boardingarea.com/2012/10/11/a-beginners-guide-to-use-deltaassist-with-twitter-a-simple-how-to-guide/](http://renespoints.boardingarea.com/2012/10/11/a-beginners-guide-to-use-deltaassist-with-twitter-a-simple-how-to-guide/)
 
 Unfortunately, it looks like [DeltaAssist is being merged](https://twitter.com/DeltaAssist/status/717104253031084032)
  into the [@Delta twitter account](https://twitter.com/Delta) as of 
