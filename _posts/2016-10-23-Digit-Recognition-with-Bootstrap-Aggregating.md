@@ -2,7 +2,7 @@
 layout: post
 title: Digit Recognition Neural Network with Bagging
 tags: Machine Learning,Data Science,CUNY Data Analytics
-keywords: Bootstrap,Aggregating,Neural Network,Keras
+keywords: Bootstrap,Aggregating,Neural Network,Keras
 ---
 {{ page.title }}
 ----------------
@@ -14,13 +14,13 @@ and asked to enhance it to improve on the the default 0.984 accuracy.
 I created a Juypter notebook on [the deep learning docker image](https://github.com/saiprashanths/dl-docker) 
 we are using for the course, and began tweaking the existing network to see what improvements I could achieve.
 I eventually arrived at a model I liked which was still largely similar to the 
-initial example network with some adjustments to drop and the application of max normalization to weights.
+initial example network with some adjustments to dropout and the application of max normalization to weights.
 
 Using my "preferred" network, an ensemble of 10 networks were trained over 40 epochs with mini-batches
-of 256.   To create the ensemble, a dictionary of Keras models was created. The `v8_1_model` 
-function creates the 
+of 256.   To create the ensemble, a dictionary of Keras models was created (`v8_1_model` 
+function creates my "preferred" network ... it was my 8th experiemental network).
 
-```{python}
+{% highlight python %}
 def createBaggingModels(n):
     """Helper function to create a dictionary of submodels for use in the bagging training"""
     bagModels = {}
@@ -30,20 +30,20 @@ def createBaggingModels(n):
         bagModels[name] = (ex_mnist.v8_1_model())
         
     return bagModels
-```
+{% endhighlight %}
 
 The `createBaggingModels` helper function created our 10 network ensemble:
 
-```{python}
+{% highlight python %}
 subModelCount = 10
 models = createBaggingModels(subModelCount)
-```
+{% endhighlight %}
 
 The ensemble was then run through the training logic. Each models' weights are saved to the file system for re-use. The 
 [Numpy `random.choice`](https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.choice.html) 
 function helps us sample with replacements for the training set specific to the iteration's model.
 
-```{python}
+{% highlight python %}
 # Train all the models
 toTrain = models.keys() 
 bootstrapTrainSize = len(X_train) * 1
@@ -52,7 +52,7 @@ for k in toTrain:
     trainNdx = np.random.choice(range(len(X_train)), int(bootstrapTrainSize))
     m, h = ex_mnist.run_network([X_train[trainNdx], X_test, y_train[trainNdx], y_test], models[k], epochs=40)
     models[k].save_weights("model-" + k + ".hdf5", overwrite=True)
-```
+{% endhighlight %}
 
 Initially, only the averaging technique for aggregation was applied, but voting was added so 
 a comparison could be done. The code for the `BaggingAverage` and `BaggingVote` aggregation functions
@@ -64,7 +64,7 @@ to the digit label. Print statements
 are still visible from my debugging phases, but these could be removed or converted
 to "verbose" output.
 
-```{python}
+{% highlight python %}
 def BaggingAverage(results, verbose = False):
     """Average the probabilities for a given test sample across models to finalize the prediction""" 
     correct = 0.0
@@ -94,9 +94,9 @@ def BaggingAverage(results, verbose = False):
             predictionMisses.append(prd)
    
     return correct
-```
+{% endhighlight %}
 
-```{python}
+{% highlight python %}
 def BaggingVote(results, verbose = False):
     """Vote based on the probabilities for a given test sample across models to finalize the prediction"""
     correct = 0.0
@@ -130,7 +130,7 @@ def BaggingVote(results, verbose = False):
             predictionMisses.append(prd)
     
     return correct
-```
+{% endhighlight %}
 
 The `results` list passed into both functions was populated similar to the following code segment. [Keras'
 predict_proba function](https://keras.io/models/sequential/), which returns the raw network probabilities, 
@@ -138,7 +138,7 @@ is used to preserve the pre-classified results for use later in the aggregating 
 The `for` loop provides each submodel in the ensemble an opportunity to generate it's output (the ensemble model
 is loaded into the `remodel` dictionary with each submodel being an entry in the dictionary).
 
-```{python}
+{% highlight python %}
 samples = 10000
 results = []
 print("Running predictions on " + str(samples) + " test set samples...")
@@ -146,11 +146,11 @@ for k in remodels.keys():
     print("Model: " + k)
     p = remodels[k].predict_proba(X_test[:samples], verbose=0)
     results.append(p)
-```
+{% endhighlight %}
 
 Finally, the helper functions are called to determine the overall performance of the ensemble model:
 
-```{python}
+{% highlight python %}
 # What is our percentage success from averaging?
 print ("Bagging w/ Averaging")
 print ("--------------------")
@@ -168,7 +168,7 @@ print ("-----------------")
 correctVote = BaggingVote(results)
 print ("Misses: " + str(samples - correctVote))
 print correctVote/samples
-```
+{% endhighlight %}
 
 The above code segment produces output as shown below with 10 submodels in the ensemble:
 
