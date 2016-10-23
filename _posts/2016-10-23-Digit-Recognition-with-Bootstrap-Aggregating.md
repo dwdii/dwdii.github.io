@@ -8,7 +8,7 @@ keywords: Bootstrap,Aggregating,Neural Network,Keras
 ----------------
 For a recent assignment in the Machine Learning and Big Data course of my Master's program,
 I was asked to add bagging, or bootstrap aggregating, to a digit recognition neural network.
-We were provided an [example digit recognition network written in Python with Keras and Theano]((https://github.com/zatonovo/deep_learning_ex/blob/master/digit_recognition/ex_mnist.py),
+We were provided an [example digit recognition network written in Python with Keras and Theano](https://github.com/zatonovo/deep_learning_ex/blob/master/digit_recognition/ex_mnist.py),
 and asked to enhance it to improve on the the default 0.984 accuracy.
 
 I created a Juypter notebook on [the deep learning docker image](https://github.com/saiprashanths/dl-docker) 
