@@ -17,10 +17,45 @@ I eventually arrived at a model I liked which was still largely similar to the
 initial example network with some adjustments to drop and the application of max normalization to weights.
 
 Using my "preferred" network, an ensemble of 10 networks were trained over 40 epochs with mini-batches
-of 256. Initially, only the averaging technique for aggregation was applied, but voting was added so 
-a comparison could be done. 
+of 256.   To create the ensemble, a dictionary of Keras models was created. The `v8_1_model` 
+function creates the 
 
-The code for the `BaggingAverage` and `BaggingVote` aggregation functions
+```{python}
+def createBaggingModels(n):
+    """Helper function to create a dictionary of submodels for use in the bagging training"""
+    bagModels = {}
+    for i in range(subModelCount):
+        name = "8_1" + string.ascii_lowercase[i]
+        print name
+        bagModels[name] = (ex_mnist.v8_1_model())
+        
+    return bagModels
+```
+
+The `createBaggingModels` helper function created our 10 network ensemble:
+
+```{python}
+subModelCount = 10
+models = createBaggingModels(subModelCount)
+```
+
+The ensemble was then run through the training logic. Each models' weights are saved to the file system for re-use. The 
+[Numpy `random.choice`](https://docs.scipy.org/doc/numpy/reference/generated/numpy.random.choice.html) 
+function helps us sample with replacements for the training set specific to the iteration's model.
+
+```{python}
+# Train all the models
+toTrain = models.keys() 
+bootstrapTrainSize = len(X_train) * 1
+for k in toTrain: 
+    print("Training model: " + k)
+    trainNdx = np.random.choice(range(len(X_train)), int(bootstrapTrainSize))
+    m, h = ex_mnist.run_network([X_train[trainNdx], X_test, y_train[trainNdx], y_test], models[k], epochs=40)
+    models[k].save_weights("model-" + k + ".hdf5", overwrite=True)
+```
+
+Initially, only the averaging technique for aggregation was applied, but voting was added so 
+a comparison could be done. The code for the `BaggingAverage` and `BaggingVote` aggregation functions
 are shown below. They each follow a similar structure. 
 [Numpy's argmax function](https://docs.scipy.org/doc/numpy/reference/generated/numpy.argmax.html)
 provides a convenient method of extracting the predicted label but depends on the
