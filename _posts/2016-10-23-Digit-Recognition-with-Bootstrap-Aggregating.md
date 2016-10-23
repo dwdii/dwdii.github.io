@@ -203,7 +203,7 @@ Misses: 136.0
 0.9864
 ```
 
-Note: The ex_mnist.py originated from 
+* Note: The ex_mnist.py originated from 
 [ZataNovo's GitHub Repo](https://github.com/zatonovo/deep_learning_ex/blob/master/digit_recognition/ex_mnist.py),
 which in turn derived it from [Vict0rSch's GitHub](https://github.com/Vict0rSch/deep_learning/blob/master/keras/feedforward/feedforward_keras_mnist.py)
 and [Wxs's GitHub](https://github.com/wxs/keras-mnist-tutorial/blob/master/MNIST%20in%20Keras.ipynb) examples.
