@@ -2,7 +2,7 @@
 layout: post
 title: Digit Recognition Neural Network with Bagging
 tags: Machine Learning,Data Science,CUNY Data Analytics
-keywords: Bootstrap,Aggregating,Neural Network,Keras
+keywords: Bootstrap,Aggregating,Neural Network,Keras
 ---
 {{ page.title }}
 ----------------
