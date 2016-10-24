@@ -208,7 +208,7 @@ Misses: 136.0
 A 20 submodel ensemble was tested as well, and the results of the 3-way test are shown below. In this limited investigation,
 additional submodels quickly began to show diminishing marginal returns.
 
-![Bagging Networks Vs Accuracy](../../img/BaggingNetworksVsAccuracy.png)
+![Bagging Networks Vs Accuracy](../../../img/BaggingNetworksVsAccuracy.png)
 
 * Note: The ex_mnist.py originated from 
 [ZataNovo's GitHub Repo](https://github.com/zatonovo/deep_learning_ex/blob/master/digit_recognition/ex_mnist.py),
