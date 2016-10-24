@@ -32,7 +32,9 @@ def createBaggingModels(n):
     return bagModels
 {% endhighlight %}
 
-The `createBaggingModels` helper function created our 10 network ensemble:
+The `createBaggingModels` helper function created our 10 network ensemble. 
+Note that it is limited to 26 submodels due to the use of the `ascii_lowercase` array for naming.
+This was sufficient for my use, but should probably be converted to integer for extensibility.
 
 {% highlight python %}
 subModelCount = 10
@@ -188,7 +190,7 @@ Misses: 143.0
 Somewhat as expected, when additional submodels were included in the ensemble,
 the accuracy improved. At 15 submodels, everything else equal, the following results
 were observed (out of 10,000 test samples). Although maybe not statistically significant, 
-the averaging technique seems to do slightly better than voting for this classification use cases. 
+the averaging technique seems to do slightly better than voting for this classification use case. 
 
 ```
 Bagging w/ Averaging
@@ -202,6 +204,11 @@ Bagging w/ Voting
 Misses: 136.0
 0.9864
 ```
+
+A 20 submodel ensemble was tested as well, and the results of the 3-way test are shown below. In this limited investigation,
+additional submodels quickly began to show diminishing marginal returns.
+
+![Bagging Networks Vs Accuracy](../img/BaggingNetworksVsAccuracy.png)
 
 * Note: The ex_mnist.py originated from 
 [ZataNovo's GitHub Repo](https://github.com/zatonovo/deep_learning_ex/blob/master/digit_recognition/ex_mnist.py),
