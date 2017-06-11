@@ -4,11 +4,12 @@
     <title>Dittenhafer Airways</title>
     <description>Test feed for realtime aircraft data.</description>
     <link>http://dwdii.github.io</link>
-    <atom:link href="http://dwdii.github.io/feed.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://dwdii.github.io/test.xml" rel="self" type="application/rss+xml" />
     
       <item>
         <title>LiveConnect as of 11:19pm on June 10, 2017</title>
-        <description>As of 11:19pm, there are 312 aircraft in flight with 309 green and 3 red. 
+        <description>
+	As of 11:19pm, there are 312 aircraft in flight with 309 green and 3 red. 
 	</description>
         <pubDate>Sat, 10 June 2017 23:19:00 +0000</pubDate>
         <link></link>
