@@ -18,11 +18,13 @@ refer to it when needing to integrate these technologies.
 To get the proof of concepts up and running quickly, I used Amazon MQ (which is based on Apache ActiveMQ) and my
 currently installed ELK stack. Specific version are listed below:
 
+
 | Component     | Version |
 |---------------|---------|
 | Amazon MQ     | v5.15.0 |
 | ElasticSearch | v5.3.3  |
 | LogStash      | v5.3.3  |
+
 
 First I paged through the LogStash documentation to see which input plugins where good candidates:
 
@@ -31,9 +33,9 @@ First I paged through the LogStash documentation to see which input plugins wher
 * [Rabbitmq input plugin](https://www.elastic.co/guide/en/logstash/current/plugins-inputs-rabbitmq.html)
 
 The first, Jms input plugin, seemed to be the most likely to meet the need, so I started there. The `logstash-input-jms` plugin,
-as it is refered to when installing, provides to configuration methods... either in the LogStash.config file or a separate YAML file.
+as it is refered to when installing, provides two configuration methods... either in the LogStash.config file or a separate YAML file.
 I made the initial mistake of mixing these and trying to do some config in the LogStash.config and some in a referenced YAML. As it turns out, 
-the YAML file (if specified) takes presidence.
+the YAML file (if specified) takes precedence.
 
 After figuring that out, my LogStash.config looked something like this:
 
