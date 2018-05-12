@@ -24,7 +24,7 @@ currently installed ELK stack. Specific version are listed below:
 | Amazon MQ     | v5.15.0 |
 | ElasticSearch | v5.3.3  |
 | LogStash      | v5.3.3  |
-
+{:.table}
 
 First I paged through the LogStash documentation to see which input plugins where good candidates:
 
