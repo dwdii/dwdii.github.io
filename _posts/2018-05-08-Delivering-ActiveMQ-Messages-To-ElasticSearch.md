@@ -102,7 +102,7 @@ from my AMQ instance.
 
 My `jms-aws-amq-dwdii.yml` file:
 
-```
+{% highlight YAML %} 
 dev:
   :factory: org.apache.activemq.ActiveMQSslConnectionFactory
   :broker_url: "ssl://unique.mq.us-east-1.amazonaws.com:61617"
@@ -110,7 +110,7 @@ dev:
     - C:\Users\Dan\Downloads\apache-activemq-5.15.3\activemq-all-5.15.3.jar
   :username: "logstash23"
   :password: "password123"
-```
+{% endhighlight %}
 
 The updated `jms` section of `LogStash.config`:
 
@@ -118,11 +118,11 @@ The updated `jms` section of `LogStash.config`:
 input {
 
   jms {
-        id => "my_first_jms"
-		yaml_file => "C:\logstash-5.3.3\config\jms-aws-amq-dwdii.yml"
-		yaml_section => "dev"
-		destination => "AmqToLogstash"
-		use_jms_timestamp => true
+	  id => "my_first_jms"
+	  yaml_file => "C:\logstash-5.3.3\config\jms-aws-amq-dwdii.yml"
+	  yaml_section => "dev"
+	  destination => "AmqToLogstash"
+	  use_jms_timestamp => true
 	}
 }
 {% endhighlight %}
