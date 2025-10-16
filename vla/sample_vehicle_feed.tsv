@@ -1,0 +1,2 @@
+id	google_product_category	vin	image_link	condition	link_template mileage price
+1	916	XXXXXXXXXXXXXXXXA	http://www.dittenhafer.net/img/IMG_7619.JPG	used	http://www.dittenhafer.net/vla/XXXXXXXXXXXXXXXXA?store={store_code}	71000 100000 USD
