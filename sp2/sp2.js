@@ -40,7 +40,8 @@ function onLinkMcAccount() {
     "provider=" + spmcid +
     "&provider_merchant_id=abc-xyz-123&signature=[HMAC_SIGNATURE]" +
     "&timestamp=" + timestampVal + 
-    "&nonce=" + nonce;
+    "&nonce=" + nonce +
+    "&redirect_uri=" /* TODO: Add callback URL*/ ;
   
   _wndHandle = window.open(
     linkUrl,
