@@ -1,0 +1,40 @@
+<html>
+<head>
+	<title>SP2xUCP - Test Service Provider</title>
+  <meta http-equiv="Content-Security-Policy" content="script-src 'nonce-EDN44362i663' 'strict-dynamic'">
+  <script nonce="EDN44362i663">
+  
+    window.addEventListener("message", (event) => {
+  	if (event.origin !== "http://merchants.google.com") return;
+    
+    node = document.gtElementById("messageOutput");
+    
+    eventData = ""; event.origin
+    eventData += "event.source: " + event.source;
+    eventData += "<br />event.orgin: " + event.orgin;
+    eventData += "<br />event.data: " + event.data;
+    node.textContent = eventData;
+	});
+  
+  function onLinkMcAccount() {
+  	window.open(
+    	"https://merchants.google.com/mc/linkedaccounts/linking/serviceprovider/link?provider=5825924880&provider_merchant_id=abc-xyz-123&signature=[HMAC_SIGNATURE]&timestamp=[TIMESTAMP]&nonce=[NONCE]",
+      "McAccountLinkPopup",
+      "popup=true");
+  }
+  
+  
+  </script>
+</head>
+<body>
+<a href="https://merchants.google.com/mc/linkedaccounts/linking/serviceprovider/link?provider=5825924880&provider_merchant_id=abc-xyz-123&signature=[HMAC_SIGNATURE]&timestamp=[TIMESTAMP]&nonce=[NONCE]" target="_blank">
+Link your MC Account</a>
+
+<button onclick="onLinkMcAccount()" >Link Merchant Center Account</button>
+
+SP MC ID: 5825924880
+
+<div id="messageOutput">
+</div>
+</body>
+</html>
