@@ -8,24 +8,26 @@
 	
 </head>
 <body>
-<h2>Test Service Provider</h2>
-
-<fieldset>
-	<div>
-		<div>
-			<label for="spmcid" class="form-label">SP MC ID:</label> 
-			<input type="text" id="spmcid" name="spmcid" class="form-control" value="5825924880">  
+<div class="container">
+	<h2>Test Service Provider</h2>
+	
+	<fieldset>
+		<div class="container">
+			<div>
+				<label for="spmcid" class="form-label">SP MC ID:</label> 
+				<input type="text" id="spmcid" name="spmcid" class="form-control" value="5825924880">  
+			</div>
+			<div>
+				<label for="spclientid" class="form-label">SP Client Id:</label>
+				<input type="text" id="spclientid" name="spclientid" class="form-control" value="xyz-abc-123"> 
+			</div>
+			<div> <button id="linkButton" class="btn btn-primary">Link Merchant Center Account</button> </div>
 		</div>
-		<div>
-			<label for="spclientid" class="form-label">SP Client Id:</label>
-			<input type="text" id="spclientid" name="spclientid" class="form-control" value="xyz-abc-123"> 
+	</fieldset>
+	<fieldset>
+		<div id="messageOutput">
 		</div>
-		<div> <button id="linkButton" class="btn btn-primary">Link Merchant Center Account</button> </div>
-	</div>
-</fieldset>
-<fieldset>
-	<div id="messageOutput">
-	</div>
-</fieldset>
+	</fieldset>
+</div>
 </body>
 </html>
