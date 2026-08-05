@@ -32,5 +32,7 @@ function onLinkMcAccount() {
     "McAccountLinkPopup",
     "popup=true,width=1000,height=720");
 
-  wndHandle.focus();
+  if(wndHandle) {
+    wndHandle.focus();
+  }
 }
