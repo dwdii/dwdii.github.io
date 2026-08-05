@@ -43,7 +43,7 @@ function onLinkMcAccount() {
   _wndHandle = window.open(
     linkUrl,
     "McAccountLinkPopup",
-    "popup=true,width=900,height=1000");
+    "popup=true,width=900,height=1000,opener");
 
   if(_wndHandle) {
     _wndHandle.focus();
