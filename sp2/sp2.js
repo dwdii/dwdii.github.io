@@ -21,8 +21,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
 });
 
 function onLinkMcAccount() {
-  window.open(
+  wndHandle = window.open(
     "https://merchants.google.com/mc/linkedaccounts/linking/serviceprovider/link?provider=5825924880&provider_merchant_id=abc-xyz-123&signature=[HMAC_SIGNATURE]&timestamp=[TIMESTAMP]&nonce=[NONCE]",
     "McAccountLinkPopup",
-    "popup=true");
+    "popup=true,width=640,height=320");
+
+  wndHandle.focus();
 }
