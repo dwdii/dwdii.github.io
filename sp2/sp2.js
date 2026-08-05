@@ -27,7 +27,7 @@ function onLinkMcAccount() {
   wndHandle = window.open(
     "https://merchants.google.com/mc/linkedaccounts/linking/serviceprovider/link?provider=5825924880&provider_merchant_id=abc-xyz-123&signature=[HMAC_SIGNATURE]&timestamp=[TIMESTAMP]&nonce=[NONCE]",
     "McAccountLinkPopup",
-    "popup=true,width=640,height=320");
+    "popup=true,width=1024,height=640");
 
   wndHandle.focus();
 }
