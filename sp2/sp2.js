@@ -1,17 +1,10 @@
 // Hook the window message event.
 window.addEventListener("message", (event) => {
 
-  console.log("Received a message from " + event.origin);
-  
-  if (event.origin !== "http://merchants.google.com") return;
-  
-  let node = document.getElementById("messageOutput");
-  
-  let eventData = ""; 
-  eventData += "event.source: " + event.source;
-  eventData += "<br />event.orgin: " + event.orgin;
-  eventData += "<br />event.data: " + event.data;
-  node.textContent = eventData;
+  console.log("Received a message from origin: " + event.origin);
+  console.log("Received a message from source: " + event.source);
+
+  if (event.origin !== "http://merchants.google.com") return;  
 });
 
 document.addEventListener("DOMContentLoaded", (event) => {
