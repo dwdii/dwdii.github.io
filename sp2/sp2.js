@@ -24,8 +24,10 @@ document.addEventListener("DOMContentLoaded", (event) => {
 });
 
 function onLinkMcAccount() {
+  node = document.getElementById("spmcid");
+  spmcid = node.value;
   wndHandle = window.open(
-    "https://merchants.google.com/mc/linkedaccounts/linking/serviceprovider/link?provider=5825924880&provider_merchant_id=abc-xyz-123&signature=[HMAC_SIGNATURE]&timestamp=[TIMESTAMP]&nonce=[NONCE]",
+    "https://merchants.google.com/mc/linkedaccounts/linking/serviceprovider/link?provider=" + spmcid + "&provider_merchant_id=abc-xyz-123&signature=[HMAC_SIGNATURE]&timestamp=[TIMESTAMP]&nonce=[NONCE]",
     "McAccountLinkPopup",
     "popup=true,width=1000,height=720");
 
