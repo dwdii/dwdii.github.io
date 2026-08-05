@@ -26,8 +26,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
 function onLinkMcAccount() {
   node = document.getElementById("spmcid");
   spmcid = node.value;
+  linkUrl = "https://merchants.google.com/mc/linkedaccounts/linking/serviceprovider/link?provider=" + spmcid + "&provider_merchant_id=abc-xyz-123&signature=[HMAC_SIGNATURE]&timestamp=[TIMESTAMP]&nonce=[NONCE]";
   wndHandle = window.open(
-    "https://merchants.google.com/mc/linkedaccounts/linking/serviceprovider/link?provider=" + spmcid + "&provider_merchant_id=abc-xyz-123&signature=[HMAC_SIGNATURE]&timestamp=[TIMESTAMP]&nonce=[NONCE]",
+    linkUrl,
     "McAccountLinkPopup",
     "popup=true,width=1000,height=720");
 
