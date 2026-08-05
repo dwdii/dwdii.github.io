@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   try {
     // Get query string tuples
     const urlParams = new URLSearchParams(window.location.search);
-    const cbData = JSON.parse(urlParams.get("result");
+    const cbData = JSON.parse(urlParams.get("result"));
 
     // {"status":500,"proposal_names":[],"google_merchant_id":"5423845892","provider_account_id":"abc-xyz-123","timestamp":"2026-08-05T19:59:02.399Z"}
     let node = document.getElementById("messageOutput");
