@@ -10,11 +10,15 @@ window.addEventListener("message", (event) => {
   node.textContent = eventData;
 });
 
-linkButton = document.getElementById("linkButton");
-linkButton.addEventListener('click', (event) => {
+document.addEventListener("DOMContentLoaded", (event) => {
+    console.log("DOM is fully parsed. You can now select HTML elements!");
+
+  linkButton = document.getElementById("linkButton");
+  linkButton.addEventListener('click', (event) => {
     console.log("Button clicked safely and securely!");
     onLinkMcAccount();
   });
+});
 
 function onLinkMcAccount() {
   window.open(
