@@ -35,7 +35,7 @@ function onLinkMcAccount() {
   
   linkUrl = "https://merchants.google.com/mc/linkedaccounts/linking/serviceprovider/link?" + 
     "provider=" + spmcid +
-    "&provider_merchant_id=abc-xyz-123&signature=[HMAC_SIGNATURE]
+    "&provider_merchant_id=abc-xyz-123&signature=[HMAC_SIGNATURE]" +
     "&timestamp=" + timestampVal + 
     "&nonce=" + timestampVal;
   
