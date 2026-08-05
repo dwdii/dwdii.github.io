@@ -5,9 +5,9 @@ window.addEventListener("message", (event) => {
   
   if (event.origin !== "http://merchants.google.com") return;
   
-  node = document.getElementById("messageOutput");
+  let node = document.getElementById("messageOutput");
   
-  eventData = ""; event.origin
+  let eventData = ""; 
   eventData += "event.source: " + event.source;
   eventData += "<br />event.orgin: " + event.orgin;
   eventData += "<br />event.data: " + event.data;
@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   console.log("DOM is fully parsed. You can now select HTML elements!");
 
   // Add click event handler to button.
-  linkButton = document.getElementById("linkButton");
+  let linkButton = document.getElementById("linkButton");
   linkButton.addEventListener('click', (event) => {
     console.log("Button clicked safely and securely!");
     onLinkMcAccount();
@@ -26,18 +26,19 @@ document.addEventListener("DOMContentLoaded", (event) => {
 });
 
 // Launch the account linking flow.
-var _wndHandle;
+let _wndHandle;
 function onLinkMcAccount() {
   
-  node = document.getElementById("spmcid");
-  spmcid = node.value;
-  timestampVal = Date.now();
+  let node = document.getElementById("spmcid");
+  let spmcid = node.value;
+  let timestampVal = Math.floor(Date.now() / 1000); // Convert to seconds per Google spec
+  let nonce = crypto.randomUUID();
   
-  linkUrl = "https://merchants.google.com/mc/linkedaccounts/linking/serviceprovider/link?" + 
+  let linkUrl = "https://merchants.google.com/mc/linkedaccounts/linking/serviceprovider/link?" + 
     "provider=" + spmcid +
     "&provider_merchant_id=abc-xyz-123&signature=[HMAC_SIGNATURE]" +
     "&timestamp=" + timestampVal + 
-    "&nonce=" + timestampVal;
+    "&nonce=" + nonce;
   
   _wndHandle = window.open(
     linkUrl,
