@@ -1,6 +1,6 @@
 window.addEventListener("message", (event) => {
 
-  console.log("Received a message from " + event.origin");
+  console.log("Received a message from " + event.origin);
   
   if (event.origin !== "http://merchants.google.com") return;
   
