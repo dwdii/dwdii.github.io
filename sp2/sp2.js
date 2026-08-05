@@ -23,16 +23,17 @@ document.addEventListener("DOMContentLoaded", (event) => {
   });
 });
 
+var _wndHandle;
 function onLinkMcAccount() {
   node = document.getElementById("spmcid");
   spmcid = node.value;
   linkUrl = "https://merchants.google.com/mc/linkedaccounts/linking/serviceprovider/link?provider=" + spmcid + "&provider_merchant_id=abc-xyz-123&signature=[HMAC_SIGNATURE]&timestamp=[TIMESTAMP]&nonce=[NONCE]";
-  wndHandle = window.open(
+  _wndHandle = window.open(
     linkUrl,
     "McAccountLinkPopup",
     "popup=true,width=1000,height=720");
 
-  if(wndHandle) {
-    wndHandle.focus();
+  if(_wndHandle) {
+    _wndHandle.focus();
   }
 }
