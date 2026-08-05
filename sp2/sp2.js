@@ -1,3 +1,4 @@
+// Hook the window message event.
 window.addEventListener("message", (event) => {
 
   console.log("Received a message from " + event.origin);
@@ -14,8 +15,9 @@ window.addEventListener("message", (event) => {
 });
 
 document.addEventListener("DOMContentLoaded", (event) => {
-    console.log("DOM is fully parsed. You can now select HTML elements!");
+  console.log("DOM is fully parsed. You can now select HTML elements!");
 
+  // Add click event handler to button.
   linkButton = document.getElementById("linkButton");
   linkButton.addEventListener('click', (event) => {
     console.log("Button clicked safely and securely!");
@@ -23,6 +25,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   });
 });
 
+// Launch the account linking flow.
 var _wndHandle;
 function onLinkMcAccount() {
   node = document.getElementById("spmcid");
