@@ -1,7 +1,7 @@
 window.addEventListener("message", (event) => {
   if (event.origin !== "http://merchants.google.com") return;
   
-  node = document.gtElementById("messageOutput");
+  node = document.getElementById("messageOutput");
   
   eventData = ""; event.origin
   eventData += "event.source: " + event.source;
@@ -9,6 +9,12 @@ window.addEventListener("message", (event) => {
   eventData += "<br />event.data: " + event.data;
   node.textContent = eventData;
 });
+
+linkButton = document.getElementById("linkButton");
+linkButton.addEventListener('click', (event) => {
+    console.log("Button clicked safely and securely!");
+    onLinkMcAccount();
+  });
 
 function onLinkMcAccount() {
   window.open(
