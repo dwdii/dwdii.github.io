@@ -33,7 +33,7 @@ function onLinkMcAccount() {
   spmcid = node.value;
   timestampVal = Date.now();
   
-  linkUrl = "https://merchants.google.com/mc/linkedaccounts/linking/serviceprovider/link? + 
+  linkUrl = "https://merchants.google.com/mc/linkedaccounts/linking/serviceprovider/link?" + 
     "provider=" + spmcid +
     "&provider_merchant_id=abc-xyz-123&signature=[HMAC_SIGNATURE]
     "&timestamp=" + timestampVal + 
