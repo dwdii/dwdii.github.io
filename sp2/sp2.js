@@ -33,8 +33,10 @@ function onLinkMcAccount() {
   let spmcid = node.value;
   let timestampVal = Math.floor(Date.now() / 1000); // Convert to seconds per Google spec
   let nonce = crypto.randomUUID();
-  
-  let linkUrl = "https://merchants.google.com/mc/linkedaccounts/linking/serviceprovider/link?" + 
+  let envNode = document.getElementById("environment");
+  let environment = envNode.value;
+    
+  let linkUrl = "https://" + environment + "/mc/linkedaccounts/linking/serviceprovider/link?" + 
     "provider=" + spmcid +
     "&provider_merchant_id=abc-xyz-123&signature=[HMAC_SIGNATURE]" +
     "&timestamp=" + timestampVal + 
