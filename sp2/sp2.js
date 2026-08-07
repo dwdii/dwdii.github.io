@@ -34,12 +34,12 @@ function onLinkMcAccount() {
     "&provider_merchant_id=abc-xyz-123&signature=[HMAC_SIGNATURE]" +
     "&timestamp=" + timestampVal + 
     "&nonce=" + nonce +
-    "&redirect_uri=" /* TODO: Add callback URL*/ ;
+    "&redirect_uri=https://www.dittenhafer.net/sp2/callback.html" /* TODO: Add callback URL*/ ;
   
   _wndHandle = window.open(
     linkUrl,
     "McAccountLinkPopup",
-    "popup=true,width=900,height=1000,rel=opener");
+    "popup=true,width=900,height=1000");
 
   if(_wndHandle) {
     _wndHandle.focus();
