@@ -26,6 +26,7 @@ function processResults()
   eventData += createTableRow("status", status);
   eventData += createTableRow("proposal_names", proposal_names);
   eventData += createTableRow("google_merchant_id", google_merchant_id); 
+  eventData += createTableRow("provider_account_id", provider_account_id);
   eventData += createTableRow("timestamp", timestamp);
   node.innerHTML = eventData;
   
