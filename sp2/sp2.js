@@ -34,7 +34,8 @@ function onLinkMcAccount() {
     "&provider_merchant_id=abc-xyz-123&signature=[HMAC_SIGNATURE]" +
     "&timestamp=" + timestampVal + 
     "&nonce=" + nonce +
-    "&redirect_uri=https://www.dittenhafer.net/sp2/callback.html" /* TODO: Add callback URL*/ ;
+    "&redirect_uri=https://www.dittenhafer.net/sp2/callback.html" +
+    "&expflags=ServiceProviderPlatform__enable_service_provider_platform_second_phase%3Atrue";
   
   _wndHandle = window.open(
     linkUrl,
