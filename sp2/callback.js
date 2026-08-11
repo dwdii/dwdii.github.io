@@ -21,6 +21,17 @@ function processResults()
   const provider_merchant_id = urlParams.get('provider_merchant_id'); // beta / GA
   const timestamp = urlParams.get('timestamp');
 
+  let nodeString = document.getElementById("humanMessage");
+  let humanMessage = "Unknown result";
+  if(status == "200") {
+    humanMessage = "Account linking proposal for Merchant Center account " + google_merchant_id + " submitted successfully.";
+  } 
+  else if (status == "500") {
+    humanMessage = "An error has occurred. Account linking proposal was not generated. ";
+  }
+
+  nodeString.innerHtml = humanMessage;
+
   // {"status":500,"proposal_names":[],"google_merchant_id":"5423845892","provider_account_id":"abc-xyz-123","timestamp":"2026-08-05T19:59:02.399Z"}
   let node = document.getElementById("messageOutput");
   let eventData = ""; 
