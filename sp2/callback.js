@@ -15,11 +15,6 @@ function processResults()
 {
   const urlParams = new URLSearchParams(window.location.search);
   const status = urlParams.get('status');
-  // const proposal_names = urlParams.get('proposal_names');
-  // const google_merchant_id = urlParams.get('google_merchant_id');
-  // const provider_account_id = urlParams.get('provider_account_id'); // legacy / alpha
-  // const provider_merchant_id = urlParams.get('provider_merchant_id'); // beta / GA
-  // const timestamp = urlParams.get('timestamp');
 
   let nodeString = document.getElementById("humanMessage");
   let humanMessage = "Unknown result";
@@ -39,19 +34,8 @@ function processResults()
   for (const key of urlParams.keys()) {
     eventData += createTableRow(key, urlParams.get(key));
   }
-  
-  // eventData += createTableRow("proposal_names", proposal_names);
-  // eventData += createTableRow("google_merchant_id", google_merchant_id); 
-  // if(null != provider_account_id) {
-  //   eventData += createTableRow("provider_account_id (alpha)", provider_account_id);
-  // }
-  // if(null != provider_merchant_id) {
-  //   eventData += createTableRow("provider_merchant_id", provider_merchant_id);
-  // }
-  // eventData += createTableRow("timestamp", timestamp);
-  
+ 
   node.innerHTML = eventData;
-  
 }
 
 function createTableRow(name, value) {
