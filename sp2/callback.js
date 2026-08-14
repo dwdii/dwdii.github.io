@@ -17,7 +17,7 @@ function processResults()
   const status = urlParams.get('status');
   const proposal_names = urlParams.get('proposal_names');
   const google_merchant_id = urlParams.get('google_merchant_id');
-  const provider_account_id = urlParams.get('provider_account_id'); // legacy / alpah
+  const provider_account_id = urlParams.get('provider_account_id'); // legacy / alpha
   const provider_merchant_id = urlParams.get('provider_merchant_id'); // beta / GA
   const timestamp = urlParams.get('timestamp');
 
@@ -38,8 +38,12 @@ function processResults()
   eventData += createTableRow("status", status);
   eventData += createTableRow("proposal_names", proposal_names);
   eventData += createTableRow("google_merchant_id", google_merchant_id); 
-  eventData += createTableRow("provider_account_id (alpha)", provider_account_id);
-  eventData += createTableRow("provider_merchant_id (go forward)", provider_merchant_id);
+  if(provider_account_id.length() > 0) {
+    eventData += createTableRow("provider_account_id (alpha)", provider_account_id);
+  }
+  if(provider_merchant_id.length() > 0) {
+    eventData += createTableRow("provider_merchant_id", provider_merchant_id);
+  }
   eventData += createTableRow("timestamp", timestamp);
   node.innerHTML = eventData;
   
