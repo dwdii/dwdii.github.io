@@ -21,9 +21,11 @@ function processResults()
   let humanMessage = "Unknown result";
   if(status == "200") {
     humanMessage = "Account linking proposal for Merchant Center account " + google_merchant_id + " submitted successfully.";
+    nodeString.classList.add("callout-info");
   } 
   else if (status == "500") {
     humanMessage = "An error has occurred. Account linking proposal was not generated. ";
+    nodeString.classList.add("callout-danger");
   }
 
   console.info(humanMessage);
