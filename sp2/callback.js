@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     processResults();
   }
   catch (e) {
-    console.error("Failed to parse callback data into JSON:", e.message);
+    console.error("Failed to process callback data:", e.message);
   }
 });
 
@@ -38,10 +38,10 @@ function processResults()
   eventData += createTableRow("status", status);
   eventData += createTableRow("proposal_names", proposal_names);
   eventData += createTableRow("google_merchant_id", google_merchant_id); 
-  if(provider_account_id.length() > 0) {
+  if(null != provider_account_id && provider_account_id.length() > 0) {
     eventData += createTableRow("provider_account_id (alpha)", provider_account_id);
   }
-  if(provider_merchant_id.length() > 0) {
+  if(null != provider_merchant_id && provider_merchant_id.length() > 0) {
     eventData += createTableRow("provider_merchant_id", provider_merchant_id);
   }
   eventData += createTableRow("timestamp", timestamp);
