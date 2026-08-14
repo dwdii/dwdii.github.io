@@ -15,6 +15,7 @@ function processResults()
 {
   const urlParams = new URLSearchParams(window.location.search);
   const status = urlParams.get('status');
+  const google_merchant_id = urlParams.get('google_merchant_id');
 
   let nodeString = document.getElementById("humanMessage");
   let humanMessage = "Unknown result";
