@@ -1,6 +1,13 @@
 document.addEventListener("DOMContentLoaded", (event) => {
   console.log("DOMContentLoaded");
 
+   // Add click event handler to button.
+  let closeButton = document.getElementById("closeButton");
+  linkButton.addEventListener('click', (event) => {
+    console.log("closeButton clicked safely and securely!");
+    window.close();
+  });
+
   try {
     // Get query string tuples
     const urlParams = new URLSearchParams(window.location.search);
