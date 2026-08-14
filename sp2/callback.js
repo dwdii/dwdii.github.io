@@ -27,7 +27,7 @@ function processResults()
   }
 
   console.info(humanMessage);
-  nodeString.innerHtml = humanMessage;
+  nodeString.innerHTML = humanMessage;
 
   // {"status":500,"proposal_names":[],"google_merchant_id":"5423845892","provider_account_id":"abc-xyz-123","timestamp":"2026-08-05T19:59:02.399Z"}
   let node = document.getElementById("messageOutput");
