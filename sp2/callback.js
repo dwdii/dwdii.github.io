@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
    // Add click event handler to button.
   let closeButton = document.getElementById("closeButton");
-  linkButton.addEventListener('click', (event) => {
+  closeButton.addEventListener('click', (event) => {
     console.log("closeButton clicked safely and securely!");
     window.close();
   });
