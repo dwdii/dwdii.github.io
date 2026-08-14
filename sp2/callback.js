@@ -30,6 +30,7 @@ function processResults()
     humanMessage = "An error has occurred. Account linking proposal was not generated. ";
   }
 
+  console.info(humanMessage);
   nodeString.innerHtml = humanMessage;
 
   // {"status":500,"proposal_names":[],"google_merchant_id":"5423845892","provider_account_id":"abc-xyz-123","timestamp":"2026-08-05T19:59:02.399Z"}
