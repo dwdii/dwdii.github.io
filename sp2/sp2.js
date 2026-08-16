@@ -28,13 +28,19 @@ function onLinkMcAccount() {
   let nonce = crypto.randomUUID();
   let envNode = document.getElementById("environment");
   let environment = envNode.value;
+  let redirect_uri = "";
+
+  let callbackSwitch = document.getElementById("callbackUriSwitch");
+  if(callbackSwitch.checked) {
+    redirect_uri = "&redirect_uri=https://www.dittenhafer.net/sp2/callback.html";
+  }
     
   let linkUrl = "https://" + environment + "/mc/linkedaccounts/linking/serviceprovider/link?" + 
     "provider=" + spmcid +
     "&provider_merchant_id=abc-xyz-123&signature=[HMAC_SIGNATURE]" +
     "&timestamp=" + timestampVal + 
     "&nonce=" + nonce +
-    "&redirect_uri=https://www.dittenhafer.net/sp2/callback.html" +
+    redirect_uri +
     "&expflags=ServiceProviderPlatform__enable_service_provider_platform_second_phase%3Atrue";
   
   _wndHandle = window.open(
