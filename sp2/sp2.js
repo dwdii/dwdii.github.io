@@ -48,7 +48,7 @@ function onLinkMcAccount() {
     redirect_uri;
 
   // Window size, location
-  let width = 750;
+  let width = 800;
   let left = (window.screen.width / 2) - (width / 2);
 
   // Open the window
