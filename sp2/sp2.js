@@ -26,7 +26,7 @@ function onLinkMcAccount() {
   let spmcid = node.value;
   
   let nodeExtAcct = document.getElementById("spclientid");
-  let spclientid = node.value;
+  let spclientid = nodeExtAcct.value;
   
   let timestampVal = Math.floor(Date.now() / 1000); // Convert to seconds per Google spec
   let nonce = crypto.randomUUID();
