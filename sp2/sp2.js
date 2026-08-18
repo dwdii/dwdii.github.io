@@ -24,6 +24,10 @@ function onLinkMcAccount() {
   
   let node = document.getElementById("spmcid");
   let spmcid = node.value;
+  
+  let nodeExtAcct = document.getElementById("spclientid");
+  let spclientid = node.value;
+  
   let timestampVal = Math.floor(Date.now() / 1000); // Convert to seconds per Google spec
   let nonce = crypto.randomUUID();
   let envNode = document.getElementById("environment");
@@ -37,15 +41,21 @@ function onLinkMcAccount() {
     
   let linkUrl = "https://" + environment + "/mc/linkedaccounts/linking/serviceprovider/link?" + 
     "provider=" + spmcid +
-    "&provider_merchant_id=abc-xyz-123&signature=[HMAC_SIGNATURE]" +
+    "&provider_merchant_id=" + spclientid +
+    // "&signature=[HMAC_SIGNATURE]" + 
     "&timestamp=" + timestampVal + 
     "&nonce=" + nonce +
     redirect_uri;
-  
+
+  // Window size, location
+  let width = 750;
+  let left = (window.screen.width / 2) - (width / 2);
+
+  // Open the window
   _wndHandle = window.open(
     linkUrl,
     "McAccountLinkPopup",
-    "popup=true,width=750,height=1000");
+    "popup=true,width=" + width + ",height=1000,top=100,left=" + left);
 
   if(_wndHandle) {
     _wndHandle.focus();
