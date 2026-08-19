@@ -41,8 +41,16 @@ function processResults()
   // {"status":500,"proposal_names":[],"google_merchant_id":"5423845892","provider_account_id":"abc-xyz-123","timestamp":"2026-08-05T19:59:02.399Z"}
   let node = document.getElementById("messageOutput");
   let eventData = ""; 
+  let value = "";
   for (const key of urlParams.keys()) {
-    eventData += createTableRow(key, urlParams.get(key));
+    value = urlParams.get(key);
+
+    // Confirm state was passed as expected.
+    if(key = "state" && value == "check_value") {
+      value += " ✅";
+    }
+
+    eventData += createTableRow(key, value);    
   }
  
   node.innerHTML = eventData;
