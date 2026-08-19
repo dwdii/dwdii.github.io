@@ -46,8 +46,13 @@ function processResults()
     value = urlParams.get(key);
 
     // Confirm state was passed as expected.
-    if(key = "state" && value == "check_value") {
-      value += " ✅";
+    if(key == "state") {
+      if(value == "check_value") {
+        value += " ✅";
+      }
+      else {
+        value += " ❌";
+      }
     }
 
     eventData += createTableRow(key, value);    
