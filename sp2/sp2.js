@@ -36,7 +36,8 @@ function onLinkMcAccount() {
 
   let callbackSwitch = document.getElementById("callbackUriSwitch");
   if(callbackSwitch.checked) {
-    redirect_uri = "&redirect_uri=https://www.dittenhafer.net/sp2/callback.html";
+    let stateParam = "check_value";
+    redirect_uri = "&redirect_uri=" + encodeURIComponent("https://www.dittenhafer.net/sp2/callback.html?state=" + stateParam);
   }
     
   let linkUrl = "https://" + environment + "/mc/linkedaccounts/linking/serviceprovider/link?" + 
