@@ -90,7 +90,7 @@ function buildSignature(
   const messageBytes = encoder.encode(inputStr);
 
   // 1. Import the secret key
-  const cryptoKey = await crypto.subtle.importKey(
+  const cryptoKey = crypto.subtle.importKey(
     "raw",
     keyBytes,
     { name: "HMAC", hash: "SHA-256" },
@@ -99,7 +99,7 @@ function buildSignature(
   );
 
   // 2. Sign the message
-  const signatureBuffer = await crypto.subtle.sign(
+  const signatureBuffer = crypto.subtle.sign(
     "HMAC",
     cryptoKey,
     messageBytes
