@@ -33,19 +33,24 @@ function onLinkMcAccount() {
   let envNode = document.getElementById("environment");
   let environment = envNode.value;
   let redirect_uri = "";
+  let redirect_url_val = null;
 
   let callbackSwitch = document.getElementById("callbackUriSwitch");
   if(callbackSwitch.checked) {
     let stateParam = "check_value";
-    redirect_uri = "&redirect_uri=" + encodeURIComponent("https://www.dittenhafer.net/sp2/callback.html?state=" + stateParam);
+    redirect_url_val = "https://www.dittenhafer.net/sp2/callback.html?state=" + stateParam;
+    redirect_uri = "&redirect_uri=" + encodeURIComponent(redirect_url_val);
   }
+
+  let signature = buildSignature(spmcid, spclientid, timestampVal, nonce, redirect_url_val)
+  console.log("Signature: " + signature);
     
   let linkUrl = "https://" + environment + "/mc/linkedaccounts/linking/serviceprovider/link?" + 
-    "provider=" + spmcid +
-    "&provider_merchant_id=" + spclientid +
-    // "&signature=[HMAC_SIGNATURE]" + 
-    "&timestamp=" + timestampVal + 
-    "&nonce=" + nonce +
+    "provider=" + encodeURIComponent(spmcid) +
+    "&provider_merchant_id=" + encodeURIComponent(spclientid) +
+    // "&signature=[HMAC_SIGNATURE]" +
+    "&timestamp=" + encodeURIComponent(timestampVal) +
+    "&nonce=" + encodeURIComponent(nonce) +
     redirect_uri;
 
   // Window size, location
@@ -63,4 +68,47 @@ function onLinkMcAccount() {
   }
 }
 
- // + "&expflags=ServiceProviderPlatform__enable_service_provider_platform_second_phase%3Atrue";
+function buildSignature(
+  provider,
+  provider_merchant_id,
+  timestamp,
+  nonce,
+  redirect_uri) {
+
+  const encoder = new TextEncoder();
+  const keyBytes = encoder.encode("test_secret_key_9f82c4b108e147da");
+  
+  let inputStr = "GET\n/sp/link\nclient_id=" + encodeURIComponent(provider) + 
+    "&nonce=" + encodeURIComponent(nonce) + 
+    "&provider_merchant_id=" + encodeURIComponent(provider_merchant_id);
+
+  if(redirect_uri != null || redirect_uri.length() > 0) {
+    inputStr += "&redirect_uri=" + encodeURIComponent(redirect_uri);
+  }
+
+  inputStr += "&timestamp=" + encodeURIComponent(timestamp);
+  const messageBytes = encoder.encode(inputStr);
+
+  // 1. Import the secret key
+  const cryptoKey = await crypto.subtle.importKey(
+    "raw",
+    keyBytes,
+    { name: "HMAC", hash: "SHA-256" },
+    false,
+    ["sign"]
+  );
+
+  // 2. Sign the message
+  const signatureBuffer = await crypto.subtle.sign(
+    "HMAC",
+    cryptoKey,
+    messageBytes
+  );
+
+  // 3. Convert ArrayBuffer to Hex String
+  let signature = Array.from(new Uint8Array(signatureBuffer))
+    .map(b => b.toString(16).padStart(2, "0"))
+    .join("");
+
+  return signature;
+}
