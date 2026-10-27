@@ -101,10 +101,10 @@ async function buildSignature(
 
   // 2. Sign the message
   let signatureBuffer = null;
-  console.log("key: " + key.toString());
+  console.log("key: " + cryptoKey.toString());
   signatureBuffer = await crypto.subtle.sign(
     "HMAC",
-    key,
+    cryptoKey,
     messageBytes);
 
   // 3. Convert ArrayBuffer to Hex String
