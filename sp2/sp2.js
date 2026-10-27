@@ -42,7 +42,7 @@ async function onLinkMcAccount() {
     redirect_uri = "&redirect_uri=" + encodeURIComponent(redirect_url_val);
   }
 
-  let signature = buildSignature(spmcid, spclientid, timestampVal, nonce, redirect_url_val)
+  let signature = await buildSignature(spmcid, spclientid, timestampVal, nonce, redirect_url_val)
   console.log("Signature: " + signature);
     
   let linkUrl = "https://" + environment + "/mc/linkedaccounts/linking/serviceprovider/link?" + 
