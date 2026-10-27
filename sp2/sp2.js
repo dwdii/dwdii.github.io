@@ -101,7 +101,6 @@ async function buildSignature(
 
   // 2. Sign the message
   let signatureBuffer = null;
-  console.log("key: " + cryptoKey.toString());
   signatureBuffer = await crypto.subtle.sign(
     "HMAC",
     cryptoKey,
