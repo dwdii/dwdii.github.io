@@ -87,9 +87,10 @@ function buildSignature(
   }
 
   inputStr += "&timestamp=" + encodeURIComponent(timestamp);
-  const messageBytes = encoder.encode(inputStr);
+  console.log(inputStr);
 
   // 1. Import the secret key
+  const messageBytes = encoder.encode(inputStr);
   const cryptoKey = crypto.subtle.importKey(
     "raw",
     keyBytes,
@@ -101,11 +102,12 @@ function buildSignature(
   // 2. Sign the message
   let signatureBuffer = null;
   cryptoKey.then((key) =>  {
-      signatureBuffer = crypto.subtle.sign(
-        "HMAC",
-        key,
-        messageBytes)
-      });
+    console.log("key: " + key);
+    signatureBuffer = crypto.subtle.sign(
+      "HMAC",
+      key,
+      messageBytes)
+    });
 
   // 3. Convert ArrayBuffer to Hex String
   let signature = Array.from(new Uint8Array(signatureBuffer))
