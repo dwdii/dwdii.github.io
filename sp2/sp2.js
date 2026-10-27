@@ -99,11 +99,13 @@ function buildSignature(
   );
 
   // 2. Sign the message
-  const signatureBuffer = crypto.subtle.sign(
-    "HMAC",
-    cryptoKey,
-    messageBytes
-  );
+  let signatureBuffer = null;
+  cryptoKey.then((key) =>  {
+      signatureBuffer = crypto.subtle.sign(
+        "HMAC",
+        key,
+        messageBytes
+      });
 
   // 3. Convert ArrayBuffer to Hex String
   let signature = Array.from(new Uint8Array(signatureBuffer))
