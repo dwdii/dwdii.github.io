@@ -104,7 +104,7 @@ function buildSignature(
       signatureBuffer = crypto.subtle.sign(
         "HMAC",
         key,
-        messageBytes
+        messageBytes)
       });
 
   // 3. Convert ArrayBuffer to Hex String
