@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
 // Launch the account linking flow.
 let _wndHandle;
-function onLinkMcAccount() {
+async function onLinkMcAccount() {
   
   let node = document.getElementById("spmcid");
   let spmcid = node.value;
@@ -68,7 +68,7 @@ function onLinkMcAccount() {
   }
 }
 
-function buildSignature(
+async function buildSignature(
   provider,
   provider_merchant_id,
   timestamp,
@@ -91,7 +91,7 @@ function buildSignature(
 
   // 1. Import the secret key
   const messageBytes = encoder.encode(inputStr);
-  const cryptoKey = crypto.subtle.importKey(
+  const cryptoKey = await crypto.subtle.importKey(
     "raw",
     keyBytes,
     { name: "HMAC", hash: "SHA-256" },
@@ -101,21 +101,17 @@ function buildSignature(
 
   // 2. Sign the message
   let signatureBuffer = null;
-  cryptoKey.then((key) =>  {
-    console.log("key: " + key);
-    signatureBuffer = crypto.subtle.sign(
-      "HMAC",
-      key,
-      messageBytes)
-    });
+  console.log("key: " + key.toString());
+  signatureBuffer = await crypto.subtle.sign(
+    "HMAC",
+    key,
+    messageBytes);
 
   // 3. Convert ArrayBuffer to Hex String
   let signature = null;
-  signatureBuffer.then((buf) => {
-    signature = Array.from(new Uint8Array(signatureBuffer))
+  signature = Array.from(new Uint8Array(signatureBuffer))
       .map(b => b.toString(16).padStart(2, "0"))
       .join("");
-  });
 
   return signature;
 }
