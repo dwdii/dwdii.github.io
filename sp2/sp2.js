@@ -48,9 +48,9 @@ async function onLinkMcAccount() {
   let linkUrl = "https://" + environment + "/mc/linkedaccounts/linking/serviceprovider/link?" + 
     "provider=" + encodeURIComponent(spmcid) +
     "&provider_merchant_id=" + encodeURIComponent(spclientid) +
-    // "&signature=[HMAC_SIGNATURE]" +
     "&timestamp=" + encodeURIComponent(timestampVal) +
     "&nonce=" + encodeURIComponent(nonce) +
+    "&signature=" + encodeURIComponent(signature) + 
     redirect_uri;
 
   // Window size, location
