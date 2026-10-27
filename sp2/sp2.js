@@ -110,9 +110,12 @@ function buildSignature(
     });
 
   // 3. Convert ArrayBuffer to Hex String
-  let signature = Array.from(new Uint8Array(signatureBuffer))
-    .map(b => b.toString(16).padStart(2, "0"))
-    .join("");
+  let signature = null;
+  signatureBuffer.then((buf) => {
+    signature = Array.from(new Uint8Array(signatureBuffer))
+      .map(b => b.toString(16).padStart(2, "0"))
+      .join("");
+  });
 
   return signature;
 }
